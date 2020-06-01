@@ -9,11 +9,11 @@ Then, write a function named speaker that takes in a string and a callback funct
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-  // Solution code here...
+  return word.toUpperCase();
 };
 
 const speaker = (message, callback) => {
-  // Solution code here...
+  return callback(message);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,11 +33,15 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-  // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  for (let i = 0; i < times; i++)
+  {
+    callback(arr, num);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -58,7 +62,15 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  let groceryList = new Array();
+  availableItems.forEach(function(oneItem)
+  {
+    if (oneItem.available)
+    {
+      groceryList.push(oneItem.name);
+    }
+  })
+  return groceryList;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -76,7 +88,26 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  let fizzBuzzArray = new Array();
+  arr.forEach(function(oneNumber){
+    if (oneNumber % 3 === 0 && oneNumber % 5 === 0)
+    {
+      fizzBuzzArray.push('Fizz Buzz');
+    }
+    else if (oneNumber % 5 === 0)
+    {
+      fizzBuzzArray.push('Buzz');
+    }
+    else if (oneNumber % 3 === 0)
+    {
+      fizzBuzzArray.push('Fizz');
+    }
+    else
+    {
+      fizzBuzzArray.push(oneNumber);
+    }
+  })
+  return fizzBuzzArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
