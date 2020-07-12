@@ -15,3 +15,11 @@ We discussed whether it was possible to accomplish this task in a more efficient
 ## Solution
 
 ![Insert and Shift Array](../../assets/array-shift.png)
+
+## Link to Code
+
+<https://github.com/paulmrest/data-structures-and-algorithms/blob/master/challenges/ArrayShift/Program.cs>
+
+## Change Log
+
+- 1.0 Code Fellows 401 - .NET - Code Challenge 02: ArrayShift - 2020-07-07
