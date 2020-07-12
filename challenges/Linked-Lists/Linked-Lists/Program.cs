@@ -10,6 +10,9 @@ namespace Linked_Lists
             BuildAndPrintLinkedList();
         }
 
+        /// <summary>
+        /// Builds and prints a linked list from the user's input.
+        /// </summary>
         static void BuildAndPrintLinkedList()
         {
             Console.WriteLine("We're going to build our very own linked list! Wheeeeee!");
