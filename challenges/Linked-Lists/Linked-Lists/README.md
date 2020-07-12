@@ -29,7 +29,7 @@ Linked list was created in class and is included here as a DLL.
 
 ## Link to Code
 
-<https://github.com/paulmrest/data-structures-and-algorithms/blob/master/challenges/Linked-Lists/Linkded-Lists/Program.cs>
+<https://github.com/paulmrest/data-structures-and-algorithms/blob/master/challenges/Linked-Lists/Linked-Lists/Program.cs>
 
 ## Change Log
 
