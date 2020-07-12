@@ -16,8 +16,20 @@ namespace Linked_Lists
         static void BuildAndPrintLinkedList()
         {
             Console.WriteLine("We're going to build our very own linked list! Wheeeeee!");
-            int count = 0;
             LinkedList list = new LinkedList();
+            CreateLinkedList(list);
+            Console.WriteLine("Great job! You built a linked list that looks like this:");
+            Console.WriteLine(list.ToString());
+            CheckLinkedListForValues(list);
+        }
+
+        /// <summary>
+        /// Takes in a LinkedList object, takes user input and adds nodes to that LinkedList.
+        /// </summary>
+        /// <param name="list">The LinkedList object to have nodes added from user input</param>
+        static void CreateLinkedList(LinkedList list)
+        {
+            int count = 0;
             while (true)
             {
                 if (count == 0)
@@ -64,8 +76,36 @@ namespace Linked_Lists
                     }
                 }
             }
-            Console.WriteLine("Great job! You built a linked list with {0} nodes!", count);
-            Console.WriteLine(list.ToString());
+
+        }
+
+        /// <summary>
+        /// Checks user input against the parameter LinkedList, and tells the user if the LinkedList contains that value.
+        /// </summary>
+        /// <param name="list">A LinkedList object</param>
+        static void CheckLinkedListForValues(LinkedList list)
+        {
+            while (true)
+            {
+                Console.Write("Enter an integer to check if it's in your linked list: ");
+                string userEntry = Console.ReadLine();
+                if (Int32.TryParse(userEntry, out int result))
+                {
+                    bool containsInt = list.Includes(result);
+                    Console.WriteLine("Your linked list does {0}contain the number, {1}, you entered.", containsInt ? "" : "not ", result);
+                    Console.Write("Would you like to check if your linked list contains another integer? (y/n) ");
+                    string userInput = Console.ReadLine();
+                    if (userInput.ToLower() == "n" || userInput.ToLower() == "no")
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Please enter a valid integer value.");
+                }
+            }
+
         }
     }
 }
