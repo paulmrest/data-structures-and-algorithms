@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Linked_Lists</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="LLLibrary">
+      <HintPath>..\..\..\..\seattle-dotnet-401d11\Class05\Demo\LLLibrary\LLLibrary\bin\Debug\netcoreapp3.1\LLLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
