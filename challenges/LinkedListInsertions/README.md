@@ -23,7 +23,7 @@ Extend the linked list DLL to include the following new methods:
 
 ## Link to Code
 
-<https://github.com/paulmrest/data-structures-and-algorithms/blob/master/challenges/Linked-Lists/Linked-Lists/Program.cs>
+[Linked List Insertions - Extending Linked List DLL](LinkedListInsertion/Extensions/LinkedListExt.cs)
 
 ## Solution
 
