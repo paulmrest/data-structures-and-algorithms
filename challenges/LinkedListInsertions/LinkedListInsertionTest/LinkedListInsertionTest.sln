@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedListInsertionTest", "LinkedListInsertionTest.csproj", "{704EF5F5-9621-4FF2-8E93-D5079BB43A2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedListInsertion", "..\LinkedListInsertion\LinkedListInsertion.csproj", "{0771A8CC-B526-40A2-9A31-37BFE55E3452}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{704EF5F5-9621-4FF2-8E93-D5079BB43A2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{704EF5F5-9621-4FF2-8E93-D5079BB43A2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{704EF5F5-9621-4FF2-8E93-D5079BB43A2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{704EF5F5-9621-4FF2-8E93-D5079BB43A2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0771A8CC-B526-40A2-9A31-37BFE55E3452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0771A8CC-B526-40A2-9A31-37BFE55E3452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0771A8CC-B526-40A2-9A31-37BFE55E3452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0771A8CC-B526-40A2-9A31-37BFE55E3452}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31833F0F-6B0B-4A27-9FE7-F1FEE7599FBE}
+	EndGlobalSection
+EndGlobal
