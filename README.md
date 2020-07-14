@@ -22,3 +22,4 @@
 
 1. [Challenge - Insert and Shift Array](challenges/ArrayShift)
 1. [Challenge - Linked List](challenges/Linked-Lists/Linked-Lists)
+1. [Challenge - Linked List Insertions](challenges/LinkedListInsertions)
