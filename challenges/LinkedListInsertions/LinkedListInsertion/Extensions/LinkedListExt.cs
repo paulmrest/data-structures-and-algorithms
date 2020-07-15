@@ -36,7 +36,6 @@ namespace Linked_Lists.Extensions
         /// <param name="newValue">
         /// integer: the newValue contained in the new node
         /// </param>
-
         public static void InsertBefore(this LinkedList list, int value, int newValue)
         {
             Node prevNode = null;
@@ -75,7 +74,7 @@ namespace Linked_Lists.Extensions
         /// </param>
         /// <param name="newValue">
         /// integer: the newValue contained in the new node
-        /// </param>
+        /// </param> 
         public static void InsertAfter(this LinkedList list, int value, int newValue)
         {
             int count = 0;

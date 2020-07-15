@@ -11,6 +11,19 @@ namespace ArrayShift
             Console.WriteLine(StringifyIntArray(InsertShiftArray(new int[] { 12, 6, 9, 11 }, 7)));
         }
 
+        
+        /// <summary>
+        /// Takes an array of integers, inserts a new integer value shifting all the array elements to the right.
+        /// </summary>
+        /// <param name="array">
+        /// int[]: the array of integers
+        /// </param>
+        /// <param name="value">
+        /// int: the value to be inserted
+        /// </param>
+        /// <returns>
+        /// int[]: the integer array with the new integer inserted
+        /// </returns>
         public static int[] InsertShiftArray(int[] array, int value)
         {
             int length = array.Length;
@@ -35,7 +48,17 @@ namespace ArrayShift
             return newArray;
         }
 
-        static String StringifyIntArray(int[] intArray)
+        
+        /// <summary>
+        /// Returns a string representation of an integer array.
+        /// </summary>
+        /// <param name="intArray">
+        /// int[]: an array of integers
+        /// </param>
+        /// <returns>
+        /// string: a representation of an integer array
+        /// </returns>
+        static string StringifyIntArray(int[] intArray)
         {
             StringBuilder arrayString = new StringBuilder();
             for (int i = 0; i < intArray.Length; i++)
@@ -50,6 +73,15 @@ namespace ArrayShift
                 }
             }
             return arrayString.ToString();
+        }
+
+        /// <summary>
+        /// 
+        //
+        /// </summary>
+        public static void SomeMethod()
+        {
+
         }
     }
 }
