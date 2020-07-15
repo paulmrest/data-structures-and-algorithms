@@ -14,7 +14,7 @@ Extend the LinkedList class to include the following method:
 
 ## Link to Code
 
-[Linked List Class](../Libraries/LLLibrary/LinkedList.cs)
+[Linked List Class: KthFromEnd()](../Libraries/LLLibrary/LinkedList.cs#L170-L208)
 
 ## Solution
 
