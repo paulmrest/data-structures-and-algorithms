@@ -23,7 +23,7 @@ Extend the linked list DLL to include the following new methods:
 
 ## Link to Code
 
-[Linked List Insertions - Extending Linked List DLL](LinkedListInsertion/Extensions/LinkedListExt.cs)
+[Linked List Class - Append(), InsertBefore(), and InsertAfter()](../Libraries/LLLibrary/LinkedList.cs)
 
 ## Solution
 
@@ -33,4 +33,4 @@ Extend the linked list DLL to include the following new methods:
 
 ## Change Log
 
-- 1.0: Code Fellows 401 - .NET - Code Challenge 06: Linked Lists Insertion - 2020-07-13
+- 1.0: Code Challenge 06: Linked Lists Insertion - 2020-07-13

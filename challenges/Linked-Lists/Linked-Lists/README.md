@@ -1,4 +1,4 @@
-# Challenge
+# Challenge 05: Linked List Implementation
 
 Create a (singly linked) linked list and node class with the following methods:
 
@@ -29,8 +29,9 @@ Linked list was created in class and is included here as a DLL.
 
 ## Link to Code
 
-<https://github.com/paulmrest/data-structures-and-algorithms/blob/master/challenges/Linked-Lists/Linked-Lists/Program.cs>
+[Linked List Class](../Libraries/LLLibrary/LinkedList.cs)
+[Node Class](../Libraries/LLLibrary/Node.cs)
 
 ## Change Log
 
-- 1.0 Code Fellows 401 - .NET - Code Challenge 05: Linked Lists - 2020-07-11
+- 1.0: Code Challenge 05: Linked Lists - 2020-07-11
