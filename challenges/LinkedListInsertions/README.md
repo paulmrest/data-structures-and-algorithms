@@ -1,4 +1,4 @@
-# CF - 401 - Challenge 06: Linked List Insertion
+# Challenge 06: Linked List Insertion
 
 Extend the linked list DLL to include the following new methods:
 
