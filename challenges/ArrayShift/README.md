@@ -1,4 +1,4 @@
-# Challenge
+# Challenge 02: ArrayShift
 
 Write a function called `InsertShiftArray` that takes two parameters: an array of integers, and a single integer value. The function will build an array that consists of all the elements in the original array, plus the integer value inserted in the middle (see next paragraph) of the array. The function will then return this array.
 
@@ -18,8 +18,8 @@ We discussed whether it was possible to accomplish this task in a more efficient
 
 ## Link to Code
 
-<https://github.com/paulmrest/data-structures-and-algorithms/blob/master/challenges/ArrayShift/Program.cs>
+[InsertShiftArray()](Program.cs)
 
 ## Change Log
 
-- 1.0 Code Fellows 401 - .NET - Code Challenge 02: ArrayShift - 2020-07-07
+- 1.0: Code Challenge 02: ArrayShift - 2020-07-07
