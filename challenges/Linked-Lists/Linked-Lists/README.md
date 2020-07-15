@@ -27,10 +27,10 @@ Linked list was created in class and is included here as a DLL.
 
 ![Linked List Execution](../../../assets/LinkedList-Example.png)
 
-## Link to Code
+## Links to Code
 
-[Linked List Class](../Libraries/LLLibrary/LinkedList.cs)
-[Node Class](../Libraries/LLLibrary/Node.cs)
+- [Linked List Class](../../Libraries/LLLibrary/LinkedList.cs)
+- [Node Class](../../Libraries/LLLibrary/Node.cs)
 
 ## Change Log
 
