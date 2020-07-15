@@ -23,7 +23,7 @@ Extend the linked list DLL to include the following new methods:
 
 ## Link to Code
 
-[Linked List Class - Append(), InsertBefore(), and InsertAfter()](../Libraries/LLLibrary/LinkedList.cs)
+[Linked List Class - Append(), InsertBefore(), and InsertAfter()](../Libraries/LLLibrary/LinkedList.cs#L81-L168)
 
 ## Solution
 
