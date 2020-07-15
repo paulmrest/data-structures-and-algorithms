@@ -166,5 +166,45 @@ namespace LLLibrary
                 currLoopNode = currLoopNode.Next;
             }
         }
+
+        /// <summary>
+        /// Finds the Kth node from the end of the list, and returns that node's value. K = 0 is the end of the list.
+        /// </summary>
+        /// <param name="k">
+        /// int: the Kth node from the end
+        /// </param>
+        /// <returns>
+        /// int: the Kth node's value
+        /// </returns>
+        public int KthFromEnd(int k)
+        {
+            if (k < 0 || Head == null)
+            {
+                throw new ArgumentOutOfRangeException("KthFromEnd needs a positive value.");
+            }
+            int count = 0;
+            Node currLoopNode = Head;
+            while (currLoopNode != null)
+            {
+                count++;
+                currLoopNode = currLoopNode.Next;
+            }
+            if (k >= count)
+            {
+                throw new ArgumentOutOfRangeException("Linked list not long enough for parameter k value.");
+            }
+            int kDiff = count - k;
+            currLoopNode = Head;
+            while (currLoopNode != null)
+            {
+                if (kDiff == 1)
+                {
+                    return currLoopNode.Value;
+                }
+                kDiff--;
+                currLoopNode = currLoopNode.Next;
+            }
+            return -1;
+        }
     }
 }
