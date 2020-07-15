@@ -8,6 +8,7 @@ namespace Linked_Lists
         static void Main(string[] args)
         {
             BuildAndPrintLinkedList();
+            LinkedList randList = new LinkedList();
         }
 
         /// <summary>
