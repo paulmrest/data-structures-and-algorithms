@@ -14,12 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LinkedListInsertion\LinkedListInsertion.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="LLLibrary">
-      <HintPath>..\..\Libraries\LLLibrary.dll</HintPath>
+      <HintPath>..\..\Libraries\LLLibrary\bin\Debug\netcoreapp3.1\LLLibrary.dll</HintPath>
     </Reference>
   </ItemGroup>
 
