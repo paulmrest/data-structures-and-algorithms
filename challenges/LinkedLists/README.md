@@ -29,8 +29,8 @@ Linked list was created in class and is included here as a DLL.
 
 ## Links to Code
 
-- [Linked List Class](../../Libraries/LLLibrary/LinkedList.cs)
-- [Node Class](../../Libraries/LLLibrary/Node.cs)
+- [Linked List Class](Classes/LinkedList.cs)
+- [Node Class](Classes/Node.cs)
 
 ## Change Log
 
@@ -63,7 +63,7 @@ Extend the linked list DLL to include the following new methods:
 
 ## Link to Code
 
-[Linked List Class - Append(), InsertBefore(), and InsertAfter()](../Libraries/LLLibrary/LinkedList.cs)
+[Linked List Class - Append(), InsertBefore(), and InsertAfter()](Classes/LinkedList.cs#L81-L176)
 
 ## Solution
 
@@ -93,7 +93,7 @@ Extend the LinkedList class to include the following method:
 
 ## Link to Code
 
-[Linked List Class](../Libraries/LLLibrary/LinkedList.cs)
+[Linked List Class - KthFromEnd()](Classes/LinkedList.cs#L178-L216)
 
 ## Solution
 
@@ -123,7 +123,7 @@ Extend the LinkedList class to include the following static method:
 
 ## Link to Code
 
-[Linked List Class](LinkedList.cs#L218-L249)
+[Linked List Class - ZipLists()](Classes/LinkedList.cs#L218-L249)
 
 ## Solution
 
