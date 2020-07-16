@@ -133,4 +133,4 @@ Extend the LinkedList class to include the following static method:
 
 ## Change Log
 
-- 1.0: Kth Node From End of LinkedList - 2020-07-14
+- 1.0: ZipLists - 2020-07-15
