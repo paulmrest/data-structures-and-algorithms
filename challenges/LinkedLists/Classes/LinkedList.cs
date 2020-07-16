@@ -86,13 +86,21 @@ namespace LLLibrary
         /// </param>
         public void Append(int value)
         {
-            Node currLoopNode = Head;
-            while (currLoopNode.Next != null)
+            if (Head == null)
             {
-                currLoopNode = currLoopNode.Next;
+                Node newNode = new Node(value);
+                Head = newNode;
             }
-            Node newNode = new Node(value);
-            currLoopNode.Next = newNode;
+            else
+            {
+                Node currLoopNode = Head;
+                while (currLoopNode.Next != null)
+                {
+                    currLoopNode = currLoopNode.Next;
+                }
+                Node newNode = new Node(value);
+                currLoopNode.Next = newNode;
+            }
         }
 
         /// <summary>
@@ -205,6 +213,39 @@ namespace LLLibrary
                 currLoopNode = currLoopNode.Next;
             }
             return -1;
+        }
+
+        /// <summary>
+        /// Builds a new LinkedList by "zippering" together two LinkedLists, so that the new LinkedList is composed of alternating Nodes from the parameters.
+        /// </summary>
+        /// <param name="list1">
+        /// LinkedList: the first LinkedList, whose first Node will be first
+        /// </param>
+        /// <param name="list2">
+        /// LinkedList: the second LinkedList, whose first node will be second
+        /// </param>
+        /// <returns>
+        /// Node: the Head of a new LinkedList
+        /// </returns>
+        public static Node ZipLists(LinkedList list1, LinkedList list2)
+        {
+            LinkedList newList = new LinkedList();
+            Node currNode1 = list1.Head;
+            Node currNode2 = list2.Head;
+            while (currNode1 != null || currNode2 != null)
+            {
+                if (currNode1 != null)
+                {
+                    newList.Append(currNode1.Value);
+                    currNode1 = currNode1.Next;
+                }
+                if (currNode2 != null)
+                {
+                    newList.Append(currNode2.Value);
+                    currNode2 = currNode2.Next;
+                }
+            }
+            return newList.Head;
         }
     }
 }
