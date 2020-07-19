@@ -1,10 +1,4 @@
-# Lab 10 - Stacks and Queues
-
-*Author: Paul M Rest*
-
-----
-
-### Description
+# Challenge 10: Stack and Queue Implementation
 
 A class library project containing a Stack and Queue class, with the Node class used by both. The Node class here can only hold string values.
 
@@ -20,40 +14,42 @@ For the Queue class:
 - Can `Peek()` at the front Node's value without affecting the queue
 - Can check if queue `IsEmpty()`
 
----
+## Approach & Efficiency
 
-### Getting Started
-Clone this repository to your local machine.
+Stack class:
+- `Push()`
+    - Time: O(1)
+    - Space: O(1)
+- `Pop()`
+    - Time: O(1)
+    - Space: O(1)
+- `Peek()`
+    - Time: O(1)
+    - Space: O(1)
+- `IsEmpty()`
+    - Time: O(1)
+    - Space: O(1)
 
-In a command line environment with Git installed:
+Queue class
+- `Enqueue()`
+    - Time: O(1)
+    - Space: O(1)
+- `Dequeue()`
+    - Time: O(1)
+    - Space: O(1)
+- `Peek()`
+    - Time: O(1)
+    - Space: O(1)
+- `IsEmpty()`
+    - Time: O(1)
+    - Space: O(1)
 
-```
-git clone GIT REPO URL HERE
-```
+## Links to Code
 
-### To Compile the Program (Using Visual Studio 2019):
-Select ```File``` -> ```Open``` -> ```Project/Solution```
+- [Stack Class](Classes/Stack.cs)
+- [Queue Class](Classes/Queue.cs)
+- [Node Class](Classes/Node.cs)
 
-Next navigate to the directory you cloned the repository to.
+## Change Log
 
-Double click on the ```StacksAndQueues``` directory.
-
-Then select and open ```StacksAndQueues.sln```
-
-Select ```Build``` -> ```Build Solution``` to compile the project.
-
----
-
-### Version
-
-v1.0
-
-### Change Log
-
-#### 2020-07-18
-- Stack implementation. 14:24 PDT
-- Queue implementation. 17:51 PDT
-- README completed. 18:22 PDT
-
-------------------------------
-For more information on Markdown: https://www.markdownguide.org/cheat-sheet
+- 1.0: Code Challenge 05: Linked Lists - 2020-07-18
