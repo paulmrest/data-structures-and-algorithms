@@ -9,6 +9,16 @@ namespace StacksAndQueuesTests
     {
         #region StackTesting
         [Fact]
+        public void CanInstantiateAnEmptyStack()
+        {
+            //Arrange
+            Stack testStack = new Stack();
+
+            //Assert
+            Assert.Null(testStack.Top);
+        }
+
+        [Fact]
         public void CanPushSingleNodeOntoStack()
         {
             //Arrange
@@ -165,6 +175,163 @@ namespace StacksAndQueuesTests
 
             //Assert
             Assert.True(!testStack.IsEmpty());
+        }
+        #endregion
+
+        #region QueueTesting
+        [Fact]
+        public void CanInsantiateAnEmptyQueue()
+        {
+            //Arrange
+            Queue testQueue = new Queue();
+
+            //Assert
+            Assert.Null(testQueue.Front);
+        }
+
+        [Fact]
+        public void CanEnqueueANode()
+        {
+            //Arrange
+            Queue testQueue = new Queue();
+            string value1 = "the best node";
+
+            //Act
+            testQueue.Enqueue(value1);
+
+            //Assert
+            Assert.Equal(value1, testQueue.Front.Value);
+        }
+
+        [Fact]
+        public void CanEnqueueMultipleNodes()
+        {
+            //Arrange
+            Queue testQueue = new Queue();
+            string value1 = "the best node";
+            string value2 = "nope, I am the best node";
+            string value3 = "you're all wrong, I'm the best";
+
+            //Act
+            testQueue.Enqueue(value1);
+            testQueue.Enqueue(value2);
+            testQueue.Enqueue(value3);
+
+            //Assert
+            Assert.Equal(value1, testQueue.Front.Value);
+        }
+
+        [Fact]
+        public void CanDequeueANode()
+        {
+            //Arrange
+            Queue testQueue = new Queue();
+            string value1 = "the best node";
+            string value2 = "nope, I am the best node";
+            string value3 = "you're all wrong, I'm the best";
+
+            //Act
+            testQueue.Enqueue(value1);
+            testQueue.Enqueue(value2);
+            testQueue.Enqueue(value3);
+            string dequeuedValue = testQueue.Dequeue();
+
+            //Assert
+            Assert.Equal(dequeuedValue, value1);
+            Assert.Equal(value2, testQueue.Front.Value);
+        }
+
+        [Fact]
+        public void CanDequeueMultipleNodes()
+        {
+            //Arrange
+            Queue testQueue = new Queue();
+            string value1 = "the best node";
+            string value2 = "nope, I am the best node";
+            string value3 = "you're all wrong, I'm the best";
+
+            //Act
+            testQueue.Enqueue(value1);
+            testQueue.Enqueue(value2);
+            testQueue.Enqueue(value3);
+            testQueue.Dequeue();
+            string testDequeueValue = testQueue.Dequeue();
+
+            //Assert
+            Assert.Equal(testDequeueValue, value2);
+            Assert.Equal(value3, testQueue.Front.Value);
+        }
+
+        [Fact]
+        public void ThrowsAnExceptionDequeuingEmptyQueue()
+        {
+            //Arrange
+            Queue testQueue = new Queue();
+
+            //Assert
+            Assert.Throws<NullReferenceException>(() => testQueue.Dequeue());
+        }
+
+        [Fact]
+        public void CanPeekTheFrontNode()
+        {
+            //Arrange
+            Queue testQueue = new Queue();
+            string value1 = "the best node";
+            string value2 = "nope, I am the best node";
+            string value3 = "you're all wrong, I'm the best";
+
+            //Act
+            testQueue.Enqueue(value1);
+            testQueue.Enqueue(value2);
+            testQueue.Enqueue(value3);
+            string peekedValue = testQueue.Peek();
+            string dequeueValue = testQueue.Dequeue();
+
+            //Assert
+            Assert.Equal(value1, peekedValue);
+            Assert.Equal(value1, dequeueValue);
+        }
+
+        [Fact]
+        public void ThrowsAnExceptionPeekingAnEmptyQueue()
+        {
+            //Arrange
+            Queue testQueue = new Queue();
+
+            //Assert
+            Assert.Throws<NullReferenceException>(() => testQueue.Dequeue());
+        }
+
+        [Fact]
+        public void CanSeeIfQueueIsEmptyAfterDequeuingEverything()
+        {
+            //Arrange
+            Queue testQueue = new Queue();
+            string value1 = "the best node";
+            string value2 = "nope, I am the best node";
+            string value3 = "you're all wrong, I'm the best";
+
+            //Act
+            testQueue.Enqueue(value1);
+            testQueue.Enqueue(value2);
+            testQueue.Enqueue(value3);
+            testQueue.Dequeue();
+            testQueue.Dequeue();
+            testQueue.Dequeue();
+
+            //Assert
+            Assert.True(testQueue.IsEmpty());
+        }
+
+        [Fact]
+        public void CanSeeEmptyQueueIsEmpty()
+        {
+            //Arrange
+            Queue testQueue = new Queue();
+
+            //Assert
+            Assert.True(testQueue.IsEmpty());
         }
         #endregion
     }

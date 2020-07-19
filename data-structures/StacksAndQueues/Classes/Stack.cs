@@ -9,10 +9,10 @@ namespace StacksAndQueues.Classes
         public Node Top { get; set; }
 
         /// <summary>
-        /// Adds a new node to the top of the stack with the parameter value.
+        /// Adds a new Node to the top of the stack with the parameter value.
         /// </summary>
         /// <param name="value">
-        /// string: the value to be contined in the new node
+        /// string: the value to be contained in the new Node
         /// </param>
         public void Push(string value)
         {
@@ -22,10 +22,10 @@ namespace StacksAndQueues.Classes
         }
 
         /// <summary>
-        /// Pops the top node off the stack and returns its value.
+        /// Pops the top Node off the stack and returns its value.
         /// </summary>
         /// <returns>
-        /// string: the string value in the top node on the stack
+        /// string: the string value in the top Node on the stack
         /// </returns>
         public string Pop()
         {
@@ -41,6 +41,12 @@ namespace StacksAndQueues.Classes
             }
         }
 
+        /// <summary>
+        /// Returns the value contained in the Node at the top of the stack without removing the node.
+        /// </summary>
+        /// <returns>
+        /// string: the value of the top Node in the stack
+        /// </returns>
         public string Peek()
         {
             try
@@ -54,6 +60,12 @@ namespace StacksAndQueues.Classes
             }
         }
 
+        /// <summary>
+        /// Returns a bool, true if the stack is empty, false if not.
+        /// </summary>
+        /// <returns>
+        /// bool: true if stack is empty, false if not
+        /// </returns>
         public bool IsEmpty()
         {
             return Top == null;
