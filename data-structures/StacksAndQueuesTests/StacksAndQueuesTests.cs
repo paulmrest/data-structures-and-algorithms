@@ -1,13 +1,11 @@
 using StacksAndQueues.Classes;
 using System;
-using System.Reflection.PortableExecutable;
 using Xunit;
 
 namespace StacksAndQueuesTests
 {
-    public class StacksAndQueuesTests
+    public class StackTests
     {
-        #region StackTesting
         [Fact]
         public void CanInstantiateAnEmptyStack()
         {
@@ -162,7 +160,6 @@ namespace StacksAndQueuesTests
             Assert.True(testStack.IsEmpty());
         }
 
-
         [Fact]
         public void CanSeeIfStackIsNotEmpty()
         {
@@ -176,9 +173,10 @@ namespace StacksAndQueuesTests
             //Assert
             Assert.True(!testStack.IsEmpty());
         }
-        #endregion
+    }
 
-        #region QueueTesting
+    public class QueueTests
+    {
         [Fact]
         public void CanInsantiateAnEmptyQueue()
         {
@@ -333,6 +331,5 @@ namespace StacksAndQueuesTests
             //Assert
             Assert.True(testQueue.IsEmpty());
         }
-        #endregion
     }
 }

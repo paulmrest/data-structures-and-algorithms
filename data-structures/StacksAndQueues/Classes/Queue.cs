@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace StacksAndQueues.Classes
 {
@@ -70,6 +68,12 @@ namespace StacksAndQueues.Classes
             }
         }
 
+        /// <summary>
+        /// Returns a bool, true if the queue is empty, false if not.
+        /// </summary>
+        /// <returns>
+        /// bool: true if the queue is empty, false if not
+        /// </returns>
         public bool IsEmpty()
         {
             return Front == null;
