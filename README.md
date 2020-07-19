@@ -20,4 +20,6 @@
 
 ### 401
 
-1. [Challenge - LinkedLists](challenges/LinkedLists)
+- [Challenge - ArrayShift](challenges/ArrayShift)
+- [Challenge - LinkedLists](data-structures/LinkedLists)
+- [Challenge - Stacks and Queues](data-structures/StacksAndQueues)
