@@ -14,6 +14,9 @@ namespace QueuesWithStacks
 
         private bool StackOneLastPopped { get; set; }
 
+		/// <summary>
+		/// Instantiates a new PseudoQueue object.
+		/// </summary>
         public PseudoQueue()
         {
 			StackOne = new Stack();
@@ -22,24 +25,36 @@ namespace QueuesWithStacks
 			StackOneLastPopped = false;
         }
 
+        /// <summary>
+        /// Enqueues a new Node containing the parameter value at the back of the queue.
+        /// </summary>
+        /// <param name="value">
+        /// string: the value for the node to be enqueued
+        /// </param>
 		public void Enqueue(string value)
-        {
+		{
 			int depth = Count / 2;
 			Stack shuffledStack = Count % 2 == 0 ? StackOne : StackTwo;
-			Stack temp = new Stack();
+			Stack tempStorageStack = Count % 2 != 0 ? StackOne : StackTwo;
 			for (int i = 0; i < depth; i++)
 			{
-				temp.Push(shuffledStack.Pop());
+				tempStorageStack.Push(shuffledStack.Pop());
 			}
 			shuffledStack.Push(value);
 			for (int j = 0; j < depth; j++)
 			{
-				shuffledStack.Push(temp.Pop());
+				shuffledStack.Push(tempStorageStack.Pop());
 			}
 			Count++;
-        }
+		}
 
-		public string Dequeue()
+        /// <summary>
+        /// Dequeues a node from the queue and returns its value.
+        /// </summary>
+        /// <returns>
+        /// string: the string value of the dequeued Node
+        /// </returns>
+        public string Dequeue()
         {
 			try
             {
