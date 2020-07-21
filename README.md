@@ -23,3 +23,4 @@
 - [Challenge - ArrayShift](challenges/ArrayShift)
 - [Challenge - LinkedLists](data-structures/LinkedLists)
 - [Challenge - Stacks and Queues](data-structures/StacksAndQueues)
+- [Challenge - Queues With Stacks](challenges/QueuesWithStacks)
