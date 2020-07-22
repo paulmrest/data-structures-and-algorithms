@@ -37,3 +37,4 @@ A .NET Console App the implements a FIFO Animal Shelter. Allows getting the cat 
 - Class Structure - 18:57 PDT
 - Testing Complete - 19:42 PDT
 - Console App - 21:24 PDT
+- README and method summaries 22:03 PDT
