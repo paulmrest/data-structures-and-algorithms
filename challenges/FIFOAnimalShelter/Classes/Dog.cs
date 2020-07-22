@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FIFOAnimalShelter.Classes
+﻿namespace FIFOAnimalShelter.Classes
 {
     public class Dog : Animal
     {
