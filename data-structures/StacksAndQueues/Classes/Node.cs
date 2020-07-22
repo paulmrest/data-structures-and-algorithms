@@ -17,7 +17,6 @@ namespace StacksAndQueues.Classes
         public Node(T value)
         {
             Value = value;
-            StringBuilder builder = new StringBuilder();
         }
     }
 }
