@@ -12,7 +12,7 @@ namespace AnimalShelterTesting
             AnimalShelter testShelter = new AnimalShelter();
 
             //Assert
-            Assert.Null(testShelter.Dequeue(AnimalPref.Cat));
+            Assert.Null(testShelter.Dequeue("cat"));
         }
 
         [Fact]
@@ -29,7 +29,7 @@ namespace AnimalShelterTesting
             testShelter.Enqueue(cat1);
 
             //Assert
-            Assert.Equal(dog1, testShelter.Dequeue(AnimalPref.NoPreference));
+            Assert.Equal(dog1, testShelter.Dequeue("no preference"));
         }
 
         [Fact]
@@ -58,7 +58,7 @@ namespace AnimalShelterTesting
             testShelter.Enqueue(cat3);
 
             //Assert
-            Assert.Equal(cat1, testShelter.Dequeue(AnimalPref.Cat));
+            Assert.Equal(cat1, testShelter.Dequeue("cat"));
         }
 
         [Fact]
@@ -87,7 +87,7 @@ namespace AnimalShelterTesting
             testShelter.Enqueue(cat3);
 
             //Assert
-            Assert.Equal(dog1, testShelter.Dequeue(AnimalPref.Dog));
+            Assert.Equal(dog1, testShelter.Dequeue("dog"));
         }
 
         [Fact]
@@ -115,12 +115,12 @@ namespace AnimalShelterTesting
             Cat cat3 = new Cat("Wish Bone");
             testShelter.Enqueue(cat3);
 
-            testShelter.Dequeue(AnimalPref.Cat);
-            testShelter.Dequeue(AnimalPref.Cat);
-            testShelter.Dequeue(AnimalPref.Cat);
+            testShelter.Dequeue("cat");
+            testShelter.Dequeue("cat");
+            testShelter.Dequeue("cat");
 
             //Assert
-            Assert.Null(testShelter.Dequeue(AnimalPref.Cat));
+            Assert.Null(testShelter.Dequeue("cat"));
         }
 
         [Fact]
@@ -148,12 +148,12 @@ namespace AnimalShelterTesting
             Cat cat3 = new Cat("Wish Bone");
             testShelter.Enqueue(cat3);
 
-            testShelter.Dequeue(AnimalPref.Dog);
-            testShelter.Dequeue(AnimalPref.Dog);
-            testShelter.Dequeue(AnimalPref.Dog);
+            testShelter.Dequeue("dog");
+            testShelter.Dequeue("dog");
+            testShelter.Dequeue("dog");
 
             //Assert
-            Assert.Null(testShelter.Dequeue(AnimalPref.Dog));
+            Assert.Null(testShelter.Dequeue("dog"));
         }
     }
 }
