@@ -2,11 +2,11 @@
 
 namespace StacksAndQueues.Classes
 {
-    public class Node
+    public class Node<T>
     {
-        public string Value { get; set; }
+        public T Value { get; set; }
 
-        public Node Next { get; set; }
+        public Node<T> Next { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the Node class with the parameter string as its value.
@@ -14,7 +14,7 @@ namespace StacksAndQueues.Classes
         /// <param name="value">
         /// string: the value for the Node to contain
         /// </param>
-        public Node(string value)
+        public Node(T value)
         {
             Value = value;
             StringBuilder builder = new StringBuilder();

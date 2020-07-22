@@ -1,5 +1,6 @@
 using StacksAndQueues.Classes;
 using System;
+using System.Text;
 using Xunit;
 
 namespace StacksAndQueuesTests
@@ -10,7 +11,7 @@ namespace StacksAndQueuesTests
         public void CanInstantiateAnEmptyStack()
         {
             //Arrange
-            Stack testStack = new Stack();
+            Stack<string> testStack = new Stack<string>();
 
             //Assert
             Assert.Null(testStack.Top);
@@ -20,7 +21,7 @@ namespace StacksAndQueuesTests
         public void CanPushSingleNodeOntoStack()
         {
             //Arrange
-            Stack testStack = new Stack();
+            Stack<string> testStack = new Stack<string>();
             string value = "the best node";
 
             //Act
@@ -34,7 +35,7 @@ namespace StacksAndQueuesTests
         public void CanPushMultipleValuesOntoStack()
         {
             //Arrange
-            Stack testStack = new Stack();
+            Stack<string> testStack = new Stack<string>();
             string value1 = "the best node";
             string value2 = "nope, I am the best node";
             string value3 = "you're all wrong, I'm the best";
@@ -52,7 +53,7 @@ namespace StacksAndQueuesTests
         public void CanPopOffSack()
         {
             //Arrange
-            Stack testStack = new Stack();
+            Stack<string> testStack = new Stack<string>();
             string value1 = "the best node";
             string value2 = "nope, I am the best node";
             string value3 = "you're all wrong, I'm the best";
@@ -71,7 +72,7 @@ namespace StacksAndQueuesTests
         public void ThrowsExceptionPoppingEmptyStack()
         {
             //Arrange
-            Stack testStack = new Stack();
+            Stack<string> testStack = new Stack<string>();
 
             //Assert
             Assert.Throws<NullReferenceException>(() => testStack.Pop());
@@ -81,7 +82,7 @@ namespace StacksAndQueuesTests
         public void CanEmptyStackByPopping()
         {
             //Arrange
-            Stack testStack = new Stack();
+            Stack<string> testStack = new Stack<string>();
             string value1 = "the best node";
             string value2 = "nope, I am the best node";
             string value3 = "you're all wrong, I'm the best";
@@ -103,7 +104,7 @@ namespace StacksAndQueuesTests
         public void CanPeekAtStack()
         {
             //Arrange
-            Stack testStack = new Stack();
+            Stack<string> testStack = new Stack<string>();
             string value1 = "the best node";
             string value2 = "nope, I am the best node";
             string value3 = "you're all wrong, I'm the best";
@@ -123,7 +124,7 @@ namespace StacksAndQueuesTests
         public void ThrowsExceptionPeekingEmptyStack()
         {
             //Arrange
-            Stack testStack = new Stack();
+            Stack<string> testStack = new Stack<string>();
 
             //Assert
             Assert.Throws<NullReferenceException>(() => testStack.Peek());
@@ -133,7 +134,7 @@ namespace StacksAndQueuesTests
         public void CanSeeIfEmptyStackIsEmpty()
         {
             //Arrange
-            Stack testStack = new Stack();
+            Stack<string> testStack = new Stack<string>();
 
             //Assert
             Assert.True(testStack.IsEmpty());
@@ -143,7 +144,7 @@ namespace StacksAndQueuesTests
         public void CanSeeStackIsEmptyAfterPoppingEverything()
         {
             //Arrange
-            Stack testStack = new Stack();
+            Stack<string> testStack = new Stack<string>();
             string value1 = "the best node";
             string value2 = "nope, I am the best node";
             string value3 = "you're all wrong, I'm the best";
@@ -164,7 +165,7 @@ namespace StacksAndQueuesTests
         public void CanSeeIfStackIsNotEmpty()
         {
             //Arrange
-            Stack testStack = new Stack();
+            Stack<string> testStack = new Stack<string>();
             string value1 = "the best node";
 
             //Act
@@ -181,7 +182,7 @@ namespace StacksAndQueuesTests
         public void CanInsantiateAnEmptyQueue()
         {
             //Arrange
-            Queue testQueue = new Queue();
+            Queue<string> testQueue = new Queue<string>();
 
             //Assert
             Assert.Null(testQueue.Front);
@@ -191,7 +192,7 @@ namespace StacksAndQueuesTests
         public void CanEnqueueANode()
         {
             //Arrange
-            Queue testQueue = new Queue();
+            Queue<string> testQueue = new Queue<string>();
             string value1 = "the best node";
 
             //Act
@@ -205,7 +206,7 @@ namespace StacksAndQueuesTests
         public void CanEnqueueMultipleNodes()
         {
             //Arrange
-            Queue testQueue = new Queue();
+            Queue<string> testQueue = new Queue<string>();
             string value1 = "the best node";
             string value2 = "nope, I am the best node";
             string value3 = "you're all wrong, I'm the best";
@@ -223,7 +224,7 @@ namespace StacksAndQueuesTests
         public void CanDequeueANode()
         {
             //Arrange
-            Queue testQueue = new Queue();
+            Queue<string> testQueue = new Queue<string>();
             string value1 = "the best node";
             string value2 = "nope, I am the best node";
             string value3 = "you're all wrong, I'm the best";
@@ -243,7 +244,7 @@ namespace StacksAndQueuesTests
         public void CanDequeueMultipleNodes()
         {
             //Arrange
-            Queue testQueue = new Queue();
+            Queue<string> testQueue = new Queue<string>();
             string value1 = "the best node";
             string value2 = "nope, I am the best node";
             string value3 = "you're all wrong, I'm the best";
@@ -264,7 +265,7 @@ namespace StacksAndQueuesTests
         public void ThrowsAnExceptionDequeuingEmptyQueue()
         {
             //Arrange
-            Queue testQueue = new Queue();
+            Queue<string> testQueue = new Queue<string>();
 
             //Assert
             Assert.Throws<NullReferenceException>(() => testQueue.Dequeue());
@@ -274,7 +275,7 @@ namespace StacksAndQueuesTests
         public void CanPeekTheFrontNode()
         {
             //Arrange
-            Queue testQueue = new Queue();
+            Queue<string> testQueue = new Queue<string>();
             string value1 = "the best node";
             string value2 = "nope, I am the best node";
             string value3 = "you're all wrong, I'm the best";
@@ -295,7 +296,7 @@ namespace StacksAndQueuesTests
         public void ThrowsAnExceptionPeekingAnEmptyQueue()
         {
             //Arrange
-            Queue testQueue = new Queue();
+            Queue<string> testQueue = new Queue<string>();
 
             //Assert
             Assert.Throws<NullReferenceException>(() => testQueue.Dequeue());
@@ -305,7 +306,7 @@ namespace StacksAndQueuesTests
         public void CanSeeIfQueueIsEmptyAfterDequeuingEverything()
         {
             //Arrange
-            Queue testQueue = new Queue();
+            Queue<string> testQueue = new Queue<string>();
             string value1 = "the best node";
             string value2 = "nope, I am the best node";
             string value3 = "you're all wrong, I'm the best";
@@ -326,10 +327,31 @@ namespace StacksAndQueuesTests
         public void CanSeeEmptyQueueIsEmpty()
         {
             //Arrange
-            Queue testQueue = new Queue();
+            Queue<string> testQueue = new Queue<string>();
 
             //Assert
             Assert.True(testQueue.IsEmpty());
+        }
+    }
+
+    public class QueueGenericTests
+    {
+        [Fact]
+        public void CanEnqueueStringBuilderObjects()
+        {
+            //Arrange
+            Queue<StringBuilder> testQueue = new Queue<StringBuilder>();
+            string string1 = "builder1";
+            StringBuilder builder1 = new StringBuilder(string1);
+            string string2 = "builder2";
+            StringBuilder builder2 = new StringBuilder(string2);
+
+            //Act
+            testQueue.Enqueue(builder1);
+            testQueue.Enqueue(builder2);
+
+            //Assert
+            Assert.Equal(string1, testQueue.Dequeue().ToString());
         }
     }
 }

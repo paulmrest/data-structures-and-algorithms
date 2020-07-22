@@ -58,17 +58,8 @@ namespace QueuesWithStacks
         {
 			try
             {
-                string returnValue;
-                if (StackOneLastPopped)
-                {
-					StackOneLastPopped = !StackOneLastPopped;
-                    returnValue = StackTwo.Pop();
-                }
-                else
-                {
-					StackOneLastPopped = !StackOneLastPopped;
-					returnValue = StackOne.Pop();
-                }
+                string returnValue = StackOneLastPopped ? StackTwo.Pop() : StackOne.Pop();
+                StackOneLastPopped = !StackOneLastPopped;
                 Count--;
                 return returnValue;
             } 
