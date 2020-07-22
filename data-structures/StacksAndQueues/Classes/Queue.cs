@@ -2,11 +2,11 @@
 
 namespace StacksAndQueues.Classes
 {
-    public class Queue
+    public class Queue<T>
     {
-        public Node Front { get; set; }
+        public Node<T> Front { get; set; }
 
-        private Node Rear { get; set; }
+        private Node<T> Rear { get; set; }
 
         /// <summary>
         /// Enqueues a new Node containing the parameter value at the back of the queue.
@@ -14,9 +14,9 @@ namespace StacksAndQueues.Classes
         /// <param name="value">
         /// string: the value for the node to be enqueued
         /// </param>
-        public void Enqueue(string value)
+        public void Enqueue(T value)
         {
-            Node newNode = new Node(value);
+            Node<T> newNode = new Node<T>(value);
             if (Front == null)
             {
                 Front = newNode;
@@ -35,11 +35,11 @@ namespace StacksAndQueues.Classes
         /// <returns>
         /// string: the string value of the dequeued Node
         /// </returns>
-        public string Dequeue()
+        public T Dequeue()
         {
             try
             {
-                Node temp = Front;
+                Node<T> temp = Front;
                 Front = Front.Next;
                 return temp.Value;
             }
@@ -55,11 +55,11 @@ namespace StacksAndQueues.Classes
         /// <returns>
         /// string: the value of the front Node
         /// </returns>
-        public string Peek()
+        public T Peek()
         {
             try
             {
-                string frontValue = Front.Value;
+                T frontValue = Front.Value;
                 return frontValue;
             }
             catch (NullReferenceException e)

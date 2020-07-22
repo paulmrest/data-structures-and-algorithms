@@ -2,9 +2,9 @@
 
 namespace StacksAndQueues.Classes
 {
-    public class Stack
+    public class Stack<T>
     {
-        public Node Top { get; set; }
+        public Node<T> Top { get; set; }
 
         /// <summary>
         /// Adds a new Node to the top of the stack with the parameter value.
@@ -12,9 +12,9 @@ namespace StacksAndQueues.Classes
         /// <param name="value">
         /// string: the value to be contained in the new Node
         /// </param>
-        public void Push(string value)
+        public void Push(T value)
         {
-            Node newNode = new Node(value);
+            Node<T> newNode = new Node<T>(value);
             newNode.Next = Top;
             Top = newNode;
         }
@@ -25,11 +25,11 @@ namespace StacksAndQueues.Classes
         /// <returns>
         /// string: the string value in the top Node on the stack
         /// </returns>
-        public string Pop()
+        public T Pop()
         {
             try
             {
-                Node temp = Top;
+                Node<T> temp = Top;
                 Top = Top.Next;
                 return temp.Value;
             }
@@ -45,11 +45,11 @@ namespace StacksAndQueues.Classes
         /// <returns>
         /// string: the value of the top Node in the stack
         /// </returns>
-        public string Peek()
+        public T Peek()
         {
             try
             {
-                string value = Top.Value;
+                T value = Top.Value;
                 return value;
             }
             catch (NullReferenceException e)

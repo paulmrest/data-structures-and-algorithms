@@ -6,9 +6,9 @@ namespace QueuesWithStacks
 {
     public class PseudoQueue
     {
-        private Stack StackOne { get; set; }
+        private Stack<string> StackOne { get; set; }
 
-        private Stack StackTwo { get; set; }
+        private Stack<string> StackTwo { get; set; }
 
         private int Count { get; set; }
 
@@ -19,8 +19,8 @@ namespace QueuesWithStacks
 		/// </summary>
         public PseudoQueue()
         {
-			StackOne = new Stack();
-			StackTwo = new Stack();
+			StackOne = new Stack<string>();
+			StackTwo = new Stack<string>();
 			Count = 0;
 			StackOneLastPopped = false;
         }
@@ -34,8 +34,8 @@ namespace QueuesWithStacks
 		public void Enqueue(string value)
 		{
 			int depth = Count / 2;
-			Stack shuffledStack = Count % 2 == 0 ? StackOne : StackTwo;
-			Stack tempStorageStack = Count % 2 != 0 ? StackOne : StackTwo;
+			Stack<string> shuffledStack = Count % 2 == 0 ? StackOne : StackTwo;
+			Stack<string> tempStorageStack = Count % 2 != 0 ? StackOne : StackTwo;
 			for (int i = 0; i < depth; i++)
 			{
 				tempStorageStack.Push(shuffledStack.Pop());
@@ -58,17 +58,8 @@ namespace QueuesWithStacks
         {
 			try
             {
-                string returnValue;
-                if (StackOneLastPopped)
-                {
-					StackOneLastPopped = !StackOneLastPopped;
-                    returnValue = StackTwo.Pop();
-                }
-                else
-                {
-					StackOneLastPopped = !StackOneLastPopped;
-					returnValue = StackOne.Pop();
-                }
+                string returnValue = StackOneLastPopped ? StackTwo.Pop() : StackOne.Pop();
+                StackOneLastPopped = !StackOneLastPopped;
                 Count--;
                 return returnValue;
             } 
