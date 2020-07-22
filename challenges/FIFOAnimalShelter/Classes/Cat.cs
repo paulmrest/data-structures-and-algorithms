@@ -9,6 +9,12 @@
         }
         private string _name;
 
+        /// <summary>
+        /// Instantiates a new Cat object with a name.
+        /// </summary>
+        /// <param name="name">
+        /// string: a name for this Cat instance
+        /// </param>
         public Cat(string name)
         {
             Name = name;

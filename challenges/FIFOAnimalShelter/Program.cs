@@ -32,6 +32,12 @@ namespace FIFOAnimalShelter
             FreeTheAnimals(shelter);
         }
 
+        /// <summary>
+        /// Manages a loop allowing the user to release zero or more animals from the shelter.
+        /// </summary>
+        /// <param name="shelter">
+        /// AnimalShelter: an AnimalShelter object with zero or more animals.
+        /// </param>
         private static void FreeTheAnimals(AnimalShelter shelter)
         {
             bool freedomRings = true;
@@ -40,23 +46,6 @@ namespace FIFOAnimalShelter
                 Console.WriteLine("Would you like to free a dog or a cat? Or no preference?");
                 Console.Write("Enter a \"dog\", \"cat\", or \"no preference\": ");
                 string rawPrefEntry = Console.ReadLine();
-
-                //AnimalPref pref;
-                //while (true)
-                //{
-                //    Console.Write("Enter a \"dog\", \"cat\", or \"no preference\": ");
-                //    string rawPrefEntry = Console.ReadLine();
-                //    if (Int32.TryParse(rawPrefEntry, out int userPref) && userPref > 0 && userPref < 4)
-                //    {
-                //        pref = (AnimalPref)userPref;
-                //        break;
-                //    }
-                //    else
-                //    {
-                //        Console.WriteLine("Please enter a valid number");
-                //    }
-                //}
-
                 Animal freedAnimal = shelter.Dequeue(rawPrefEntry);
                 if (freedAnimal != null)
                 {

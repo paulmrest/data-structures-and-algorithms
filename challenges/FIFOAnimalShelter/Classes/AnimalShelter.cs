@@ -9,12 +9,21 @@ namespace FIFOAnimalShelter.Classes
 
         private Queue<Cat> Cats { get; set; }
 
+        /// <summary>
+        /// Instantiates a new AnimalShelter object.
+        /// </summary>
         public AnimalShelter()
         {
             Dogs = new Queue<Dog>();
             Cats = new Queue<Cat>();
         }
 
+        /// <summary>
+        /// Stores an object that inherits from Animal.
+        /// </summary>
+        /// <param name="animal">
+        /// Animal: an object that inherits from Animal.
+        /// </param>
         public void Enqueue(Animal animal)
         {
             animal.DateTimeCaptured = DateTime.Now;
@@ -30,6 +39,24 @@ namespace FIFOAnimalShelter.Classes
             }
         }
 
+        /// <summary>
+        /// Retrieves an Animal in FIFO ordering, based off the string parameter "pref":
+        /// <para>
+        /// If pref is "cat" and there are Cats in the shelter, returns the cat that's been the shelter the longest. If there are no cats in the shelter, returns null.
+        /// </para>
+        /// <para>
+        /// If pref is "dog" and there are Dogs in the shelter, returns the dog that's been the shelter the longest. If there are no dogs in the shelter, returns null.
+        /// </para>
+        /// <para>
+        /// If pref is "no preference" and there are Cats or Dogs in the shelter, returns whichever has been in the shelter the longest. If there are only Cats or Dogs, returns the animal that's been in the shelter the longest. If no animals are in the shelter, returns null.
+        /// </para>
+        /// </summary>
+        /// <param name="pref">
+        /// string: the preferred animal
+        /// </param>
+        /// <returns>
+        /// Animal: the animal released from the shelter
+        /// </returns>
         public Animal Dequeue(string pref)
         {
             if (pref == "no preference" && (PeekCats() != null || PeekDogs() != null))
@@ -60,6 +87,12 @@ namespace FIFOAnimalShelter.Classes
             return null;
         }
 
+        /// <summary>
+        /// Handles the exception thrown by Queue.Peek() for the Cats queue.
+        /// </summary>
+        /// <returns>
+        /// Cat: if Cats queue is not empty, returns a reference to the Front Cat without affecting the queue. If Cats is empty, returns null.
+        /// </returns>
         private Cat PeekCats()
         {
             Cat cat = null;
@@ -74,6 +107,12 @@ namespace FIFOAnimalShelter.Classes
             return cat;
         }
 
+        /// <summary>
+        /// Handles the exception thrown by Queue.Peek() for the Dogs queue.
+        /// </summary>
+        /// <returns>
+        /// Dog: if Dogs queue is not empty, returns a reference to the Front Dog without affecting the queue. If Dogs is empty, returns null.
+        /// </returns>
         private Dog PeekDogs()
         {
             Dog dog = null;
