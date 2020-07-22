@@ -155,5 +155,34 @@ namespace AnimalShelterTesting
             //Assert
             Assert.Null(testShelter.Dequeue("dog"));
         }
+
+        [Fact]
+        public void ReturnsNullWhenPrefAnUnknownString()
+        {
+            //Arrange
+            AnimalShelter testShelter = new AnimalShelter();
+
+            //Act
+            Dog dog1 = new Dog("Albert");
+            testShelter.Enqueue(dog1);
+
+            Cat cat1 = new Cat("Bowling Ball");
+            testShelter.Enqueue(cat1);
+
+            Dog dog2 = new Dog("Sheetrock");
+            testShelter.Enqueue(dog2);
+
+            Cat cat2 = new Cat("Knitty Smitty");
+            testShelter.Enqueue(cat2);
+
+            Dog dog3 = new Dog("Brah");
+            testShelter.Enqueue(dog3);
+
+            Cat cat3 = new Cat("Wish Bone");
+            testShelter.Enqueue(cat3);
+
+            //Assert
+            Assert.Null(testShelter.Dequeue("iguana"));
+        }
     }
 }

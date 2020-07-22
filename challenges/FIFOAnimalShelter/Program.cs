@@ -59,6 +59,7 @@ namespace FIFOAnimalShelter
                 string rawContinueEntry = Console.ReadLine();
                 if (rawContinueEntry.ToLower() != "y" && rawContinueEntry.ToLower() != "yes")
                 {
+                    Console.WriteLine();
                     Console.WriteLine("I hope you can live with yourself...");
                     freedomRings = false;
                 }
