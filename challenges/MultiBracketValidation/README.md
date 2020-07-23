@@ -20,7 +20,7 @@ A method that takes a string as an input, and returns true if the string has bal
 
 ## Link to Code
 
-- [Program.cs - Lines 19 - 49](Program.cs#L19-L40)
+- [Program.cs - Lines 19 - 49](Program.cs#L19-L49)
 
 ## Change Log
 
