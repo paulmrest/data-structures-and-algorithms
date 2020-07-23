@@ -3,7 +3,7 @@ using FIFOAnimalShelter.Classes;
 
 namespace AnimalShelterTesting
 {
-    public class AnimalShelterTests
+    public class FIFOAnimalShelterTests
     {
         [Fact]
         public void CanCreateAnEmptyAnimalShelter()
