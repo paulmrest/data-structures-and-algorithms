@@ -25,7 +25,7 @@ namespace MultiBracketValidation
                 }
                 else if (closingBrackets.Contains(oneChar))
                 {
-                    char poppedChar = stack.Pop();
+                    char poppedChar = PopCharStackAndHandleNullRef(stack);
                     if ((poppedChar != '{' || oneChar != '}') && 
                         (poppedChar != '[' || oneChar != ']') && 
                         (poppedChar != '(' || oneChar != ')'))
@@ -35,6 +35,20 @@ namespace MultiBracketValidation
                 }
             }
             return stack.IsEmpty();
+        }
+
+        private static char PopCharStackAndHandleNullRef(Stack<char> stack)
+        {
+            char nextChar = '\0';
+            try
+            {
+                nextChar = stack.Pop();
+            }
+            catch (NullReferenceException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return nextChar;
         }
     }
 }
