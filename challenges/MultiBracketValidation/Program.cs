@@ -9,7 +9,11 @@ namespace MultiBracketValidation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string string1 = "(){}[[]]";
+            Console.WriteLine("The string {0} has balanced brackets: {1}", string1, MultiBracketValidation(string1) ? "true" : "false");
+
+            string string2 = "{}{Code}Fellows](())";
+            Console.WriteLine("The string {0} has balanced brackets: {1}", string2, MultiBracketValidation(string2) ? "true" : "false");
         }
 
         public static bool MultiBracketValidation(string input)
@@ -26,9 +30,7 @@ namespace MultiBracketValidation
                 else if (closingBrackets.Contains(oneChar))
                 {
                     char poppedChar = PopCharStackAndHandleNullRef(stack);
-                    if ((poppedChar != '{' || oneChar != '}') && 
-                        (poppedChar != '[' || oneChar != ']') && 
-                        (poppedChar != '(' || oneChar != ')'))
+                    if (poppedChar == '\0' || closingBrackets[Array.IndexOf(openingBrackets, poppedChar)] != oneChar)
                     {
                         return false;
                     }
