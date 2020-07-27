@@ -46,6 +46,26 @@ namespace MultiBracketValidationTesting
             Assert.True(!MultiBracketValidation.Program.MultiBracketValidation(input));
         }
 
+        [Fact]
+        public void ReturnsFalseForAStringWithOnlyClosingBrackets()
+        {
+            //Arrange
+            string input = "})";
+
+            //Assert
+            Assert.True(!MultiBracketValidation.Program.MultiBracketValidation(input));
+        }
+
+        [Fact]
+        public void ReturnsFalseForAStringWithOnlyOpeningBrackets()
+        {
+            //Arrange
+            string input = "([{";
+
+            //Assert
+            Assert.True(!MultiBracketValidation.Program.MultiBracketValidation(input));
+        }
+
         [Theory]
         [InlineData("{}")]
         [InlineData("{}(){}")]
