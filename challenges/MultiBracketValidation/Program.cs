@@ -52,7 +52,7 @@ namespace MultiBracketValidation
         /// Helper method to handle the NullReferenceException thrown by stack.Pop() on an empty stack.
         /// </summary>
         /// <param name="stack">
-        /// Stack<char>: a stackof chars
+        /// Stack<char>: a stack of chars
         /// </param>
         /// <returns>
         /// char: if stack is not empty, the top char value from the stack. If stack is empty, '\0'.

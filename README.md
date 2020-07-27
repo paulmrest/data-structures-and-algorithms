@@ -26,3 +26,4 @@
 - [Challenge - Queues With Stacks](challenges/QueuesWithStacks)
 - [Challenge - FIFO Animal Shelter](challenges/FIFOAnimalShelter)
 - [Challenge - Multi-Bracket Validation](challenges/MultiBracketValidation)
+- [Challenge - Tree](data-structures/Trees)
