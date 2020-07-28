@@ -28,6 +28,12 @@ namespace Trees.Classes
             Root = root;
         }
 
+        /// <summary>
+        /// Adds a new node to the tree, keeping it sorted.
+        /// </summary>
+        /// <param name="value">
+        /// int: the value to be added to the tree
+        /// </param>
         public void Add(int value)
         {
             Node<int> newNode = new Node<int>(value);
@@ -68,6 +74,15 @@ namespace Trees.Classes
             }
         }
 
+        /// <summary>
+        /// Checks if tree contains value, returns true if the tree does, false otherwise.
+        /// </summary>
+        /// <param name="value">
+        /// int: the value to search for
+        /// </param>
+        /// <returns>
+        /// bool: a bool indicating whether the tree contains the value
+        /// </returns>
         public bool Contains(int value)
         {
             if (Root != null)
