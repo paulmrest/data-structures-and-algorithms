@@ -178,4 +178,171 @@ namespace TreeTesting
             Assert.True(Enumerable.SequenceEqual(expected, output));
         }
     }
+
+    public class BinarySearchTreeTests
+    {
+        [Fact]
+        public void CanInstantiateAnEmptyBST()
+        {
+            //Arrange
+            BinarySearchTree testBST = new BinarySearchTree();
+
+            //Assert
+            Assert.Null(testBST.Root);
+        }
+
+        [Fact]
+        public void CanInstantiateBSTWithARootNode()
+        {
+            //Arrange
+            int rootInt = 500;
+            BinarySearchTree testBST = new BinarySearchTree(rootInt);
+
+            //Assert
+            Assert.Equal(rootInt, testBST.Root.Value);
+        }
+
+        [Fact]
+        public void CanAddRootToEmptyBST()
+        {
+            //Arrange
+            BinarySearchTree testBST = new BinarySearchTree();
+
+            //Act
+            int rootValue = 500;
+            testBST.Add(rootValue);
+
+            //Assert
+            Assert.Equal(rootValue, testBST.Root.Value);
+        }
+
+        [Fact]
+        public void CanAddLeftChild()
+        {
+            //Arrange
+            int rootValue = 500;
+            BinarySearchTree testBST = new BinarySearchTree(rootValue);
+
+            //Act
+            int rootLeftChildValue = 250;
+            testBST.Add(rootLeftChildValue);
+
+            //Assert
+            Assert.Equal(rootLeftChildValue, testBST.Root.LeftChild.Value);
+        }
+
+        [Fact]
+        public void CanAddRightChild()
+        {
+            //Arrange
+            int rootValue = 500;
+            BinarySearchTree testBST = new BinarySearchTree(rootValue);
+
+            //Act
+            int rootRightChildValue = 750;
+            testBST.Add(rootRightChildValue);
+
+            //Assert
+            Assert.Equal(rootRightChildValue, testBST.Root.RightChild.Value);
+        }
+
+        [Fact]
+        public void CanBuildSortedTree()
+        {
+            //Arrange
+            int rootValue = 500;
+            BinarySearchTree testBST = new BinarySearchTree(rootValue);
+
+            //Act
+            int rootLeftChildValue = 250;
+            testBST.Add(rootLeftChildValue);
+
+            int rootRightChildValue = 750;
+            testBST.Add(rootRightChildValue);
+
+            int rootLeftLeft = 150;
+            testBST.Add(rootLeftLeft);
+
+            int rootLeftRight = 300;
+            testBST.Add(rootLeftRight);
+
+            int rootRightLeft = 600;
+            testBST.Add(rootRightLeft);
+
+            int rootRightRight = 900;
+            testBST.Add(rootRightRight);
+
+            //Assert
+            Assert.Equal(rootLeftLeft, testBST.Root.LeftChild.LeftChild.Value);
+            Assert.Equal(rootLeftRight, testBST.Root.LeftChild.RightChild.Value);
+            Assert.Equal(rootRightLeft, testBST.Root.RightChild.LeftChild.Value);
+            Assert.Equal(rootRightRight, testBST.Root.RightChild.RightChild.Value);
+        }
+
+        [Theory]
+        [InlineData(600)]
+        [InlineData(250)]
+        [InlineData(150)]
+        public void ContainsReturnsTrueSearchingForPresentValues(int input)
+        {
+            //Arrange
+            int rootValue = 500;
+            BinarySearchTree testBST = new BinarySearchTree(rootValue);
+
+            //Act
+            int rootLeftChildValue = 250;
+            testBST.Add(rootLeftChildValue);
+
+            int rootRightChildValue = 750;
+            testBST.Add(rootRightChildValue);
+
+            int rootLeftLeft = 150;
+            testBST.Add(rootLeftLeft);
+
+            int rootLeftRight = 300;
+            testBST.Add(rootLeftRight);
+
+            int rootRightLeft = 600;
+            testBST.Add(rootRightLeft);
+
+            int rootRightRight = 900;
+            testBST.Add(rootRightRight);
+
+            //Assert
+            Assert.True(testBST.Contains(input));
+        }
+
+        [Theory]
+        [InlineData(1000)]
+        [InlineData(-55)]
+        [InlineData(0)]
+        public void ContainsReturnsFalseSearchingForNotPresentValues(int input)
+        {
+            //Arrange
+            int rootValue = 500;
+            BinarySearchTree testBST = new BinarySearchTree(rootValue);
+
+            //Act
+            int rootLeftChildValue = 250;
+            testBST.Add(rootLeftChildValue);
+
+            int rootRightChildValue = 750;
+            testBST.Add(rootRightChildValue);
+
+            int rootLeftLeft = 150;
+            testBST.Add(rootLeftLeft);
+
+            int rootLeftRight = 300;
+            testBST.Add(rootLeftRight);
+
+            int rootRightLeft = 600;
+            testBST.Add(rootRightLeft);
+
+            int rootRightRight = 900;
+            testBST.Add(rootRightRight);
+
+            //Assert
+            Assert.True(!testBST.Contains(input));
+        }
+    }
 }
