@@ -8,7 +8,7 @@ Class library that extends [Tree.cs](../data-structures/Trees/Tree.cs) with a `F
     - Time: O(n)
     - Space: O(1)
 
-## Link(s) to Code
+## Link to Code
 
 - [FindMaximumValueExtension.cs](Classes/FindMaximumValueExtension.cs)
 
