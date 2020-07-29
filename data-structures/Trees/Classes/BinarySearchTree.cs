@@ -46,7 +46,7 @@ namespace Trees.Classes
                 Node<int> currNode = Root;
                 while (currNode != null)
                 {
-                    if (currNode.Value > value)
+                    if (currNode.Value >= value)
                     {
                         if (currNode.LeftChild == null)
                         {
