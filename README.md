@@ -27,3 +27,4 @@
 - [Challenge - FIFO Animal Shelter](challenges/FIFOAnimalShelter)
 - [Challenge - Multi-Bracket Validation](challenges/MultiBracketValidation)
 - [Challenge - Trees](data-structures/Trees)
+- [Challenge - FindMaximumValue](challenges/FindMaximumValue)
