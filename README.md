@@ -28,3 +28,4 @@
 - [Challenge - Multi-Bracket Validation](challenges/MultiBracketValidation)
 - [Challenge - Trees](data-structures/Trees)
 - [Challenge - FindMaximumValue](challenges/FindMaximumValue)
+- [Challenge - Insertion Sort](challenges/InsertionSort)
