@@ -6,9 +6,9 @@ An implementation of insertion sort, along with a walk-through of the algorithm 
 
 ## Approach & Efficiency
 
-`InsertionSort(int[] intArray)`
-Time: O(n^2)
-Space: O(1)
+- `InsertionSort(int[] intArray)`
+    - Time: O(n^2)
+    - Space: O(1)
 
 ## Solution
 
