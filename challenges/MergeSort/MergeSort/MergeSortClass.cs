@@ -4,6 +4,12 @@ namespace MergeSortNameSpace
 {
     public class MergeSortClass
     {
+        /// <summary>
+        /// Recursively sorts an array of integers in place.
+        /// </summary>
+        /// <param name="array">
+        /// int[]: an array of integers
+        /// </param>
         public static void MergeSort(int[] array)
         {
             int length = array.Length;
@@ -18,6 +24,18 @@ namespace MergeSortNameSpace
             }
         }
 
+        /// <summary>
+        /// Private helper method. Merges leftArray and rightArray into origArray, in order, as long as leftArray and rightArray are sorted.
+        /// </summary>
+        /// <param name="leftArray">
+        /// int[]: a sorted array of integers
+        /// </param>
+        /// <param name="rightArray">
+        /// int[]: a sorted array of integers
+        /// </param>
+        /// <param name="origArray">
+        /// int[]: an array of integers, not necessarily sorted
+        /// </param>
         private static void Merge(int[] leftArray, int[] rightArray, int[] origArray)
         {
             int leftArrayIndex = 0;
