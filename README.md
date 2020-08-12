@@ -29,3 +29,4 @@
 - [Challenge - Trees](data-structures/Trees)
 - [Challenge - FindMaximumValue](challenges/FindMaximumValue)
 - [Challenge - Insertion Sort](challenges/InsertionSort)
+- [Challenge - Merge Sort](challenges/MergeSort)
