@@ -19,7 +19,7 @@ An implementation of quick sort, along with a walk-through of the algorithm usin
 
 ## Link(s) to Code
 
-[QuickSort.cs](QuickSort/QuickSort.cs)
+[QuickSort.cs](QuickSort/QuickSortClass.cs)
 
 ## Change Log
 
