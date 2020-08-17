@@ -31,3 +31,4 @@
 - [Challenge - Insertion Sort](challenges/InsertionSort)
 - [Challenge - Merge Sort](challenges/MergeSort)
 - [Challenge - Quick Sort](challenges/QuickSort)
+- [Challenge - Hash Table](data-structures/HashTable)
