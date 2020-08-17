@@ -10,6 +10,15 @@ namespace HashTables.Classes
 
         public T Value { get; set; }
 
+        /// <summary>
+        /// Instantiates a new KeyValueNode.
+        /// </summary>
+        /// <param name="key">
+        /// string: a key to be correlated with the value
+        /// </param>
+        /// <param name="value">
+        /// <T>: a value to be correlated with key
+        /// </param>
         public KeyValueNode(string key, T value)
         {
             Key = key;

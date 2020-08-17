@@ -68,6 +68,22 @@ namespace HashTableTesting
         }
 
         [Fact]
+        public void ContainsDeterminesWhetherAKeyIsPresent()
+        {
+            //Arrange
+            HashTable<int> testHashTable = new HashTable<int>(20);
+            string testKey = "our king the key";
+            int testValue = 71;
+
+            //Act
+            testHashTable.Add(testKey, testValue);
+
+            //Assert
+            Assert.NotNull(testHashTable.HashMap);
+            Assert.True(testHashTable.Contains(testKey));
+        }
+
+        [Fact]
         public void ReturnsNullForNotPresentValue()
         {
             //Arrange
