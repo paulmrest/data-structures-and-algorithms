@@ -36,8 +36,8 @@ A .NET Core class library that implements a HashTable class, and a KeyValueNode 
 
 ## Link(s) to Code
 
-(HashTable.cs)[HashTables/Classes/HashTable.cs]
-(KeyValueNode.cs)[HashTables/Classes/KeyValueNode.cs]
+- [HashTable.cs](HashTables/Classes/HashTable.cs)
+- [KeyValueNode.cs](HashTables/Classes/KeyValueNode.cs)
 
 ## Change Log
 
