@@ -23,4 +23,4 @@ An implementation of a generic binary search tree (BST) as long as the values im
 
 ### 2020-08-17
 
-- Implemented based on non-generic [Binary Search Tree](../Trees/)
+- Implemented based on non-generic [Binary Search Tree](../../Trees/)
