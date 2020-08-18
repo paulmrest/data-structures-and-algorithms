@@ -2,8 +2,8 @@
 
 An implementation of a generic binary search tree (BST) as long as the values implement IComparable.
 
--`Add()` - adds a new node with value in sorted order to the BST.
--`Contains()` - checks whether a given value is present in the BST, returns true it is, false otherwise.
+- `Add()` - adds a new node with value in sorted order to the BST.
+- `Contains()` - checks whether a given value is present in the BST, returns true it is, false otherwise.
 
 ## Approach & Efficiency
 
