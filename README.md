@@ -32,3 +32,4 @@
 - [Challenge - Merge Sort](challenges/MergeSort)
 - [Challenge - Quick Sort](challenges/QuickSort)
 - [Challenge - Hash Table](data-structures/HashTables)
+- [Challenge - Repeated Word](challenges/RepeatedWord)
