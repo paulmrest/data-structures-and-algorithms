@@ -33,3 +33,4 @@
 - [Challenge - Quick Sort](challenges/QuickSort)
 - [Challenge - Hash Table](data-structures/HashTables)
 - [Challenge - Repeated Word](challenges/RepeatedWord)
+- [Challenge - Tree Intersection](challenges/TreeIntersection)
