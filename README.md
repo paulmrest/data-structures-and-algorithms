@@ -34,3 +34,4 @@
 - [Challenge - Hash Table](data-structures/HashTables)
 - [Challenge - Repeated Word](challenges/RepeatedWord)
 - [Challenge - Tree Intersection](challenges/TreeIntersection)
+- [Challenge - Left Join](challenges/LeftJoin)
