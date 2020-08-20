@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="HashTables">
+      <HintPath>..\..\..\data-structures\HashTables\HashTables\bin\Debug\netcoreapp3.1\HashTables.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
