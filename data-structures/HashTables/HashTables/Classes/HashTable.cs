@@ -1,6 +1,7 @@
 ﻿using System;
 using HashTables.Classes;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 namespace HashTables
 {
@@ -8,6 +9,22 @@ namespace HashTables
     {
         //This is only public for testing. This should be private.
         public LinkedList<KeyValueNode<T>>[] HashMap;
+
+        public int Count { get; set; }
+
+        private int _defaultStartingSize = 20;
+
+        /// <summary>
+        /// Instantiates a new HashTable of the default size, 20.
+        /// </summary>
+        /// <param name="size">
+        /// int: the size of the HashTable
+        /// </param>
+        public HashTable()
+        {
+            HashMap = new LinkedList<KeyValueNode<T>>[_defaultStartingSize];
+            Count = 0;
+        }
 
         /// <summary>
         /// Instantiates a new HashTable of the parameter size.
@@ -18,6 +35,7 @@ namespace HashTables
         public HashTable(int size)
         {
             HashMap = new LinkedList<KeyValueNode<T>>[size];
+            Count = 0;
         }
 
         /// <summary>
@@ -31,6 +49,7 @@ namespace HashTables
         /// </param>
         public void Add(string key, T value)
         {
+            CheckHashMapSize();
             int index = GetHash(key);
             KeyValueNode<T> newNode = new KeyValueNode<T>(key, value);
             if (HashMap[index] == null)
@@ -38,6 +57,7 @@ namespace HashTables
                 HashMap[index] = new LinkedList<KeyValueNode<T>>();
             }
             HashMap[index].AddLast(newNode);
+            Count++;
         }
 
         /// <summary>
@@ -118,6 +138,31 @@ namespace HashTables
             }
             int primeProduct = totalASCIIValue * 887;
             return primeProduct % HashMap.Length;
+        }
+
+        /// <summary>
+        /// Checks if Count is greater than 3/4 the size of HashMap.Length, and if it is, doubles the size of HashMap, remapping all elements.
+        /// </summary>
+        private void CheckHashMapSize()
+        {
+            if (Count > (HashMap.Length * 0.75))
+            {
+                LinkedList<KeyValueNode<T>>[] oldHashMap = HashMap;
+                HashMap = new LinkedList<KeyValueNode<T>>[HashMap.Length * 2];
+                Count = 0;
+                foreach (LinkedList<KeyValueNode<T>> oneLL in oldHashMap)
+                {
+                    if (oneLL != null)
+                    {
+                        LinkedListNode<KeyValueNode<T>> currNode = oneLL.First;
+                        while (currNode != null)
+                        {
+                            Add(currNode.Value.Key, currNode.Value.Value);
+                            currNode = currNode.Next;
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -1,34 +1,41 @@
 ﻿using System;
 using HashTables;
 using HashTables.Classes;
+using LeftJoin.Classes;
 
 namespace LeftJoin
 {
     public class LeftJoin
     {
-        public static string[,] LeftJoinHashTables(HashTable<string> tableOne, HashTable<string> tableTwo)
+        /// <summary>
+        /// Left joins two HashTable<string> objects.
+        /// </summary>
+        /// <param name="leftTable">
+        /// HashTable<string>: the HashTable<string> to be used as the left table in the left join
+        /// </param>
+        /// <param name="rightTable">
+        /// HashTable<string>: the HashTable<string> to be used as the right table in the left join
+        /// </param>
+        /// <returns>
+        /// HashTable<string>: a HashTable<LeftJoinNode>, containing the keys and values from leftTable and rightTable, left joined together
+        /// </returns>
+        public static HashTable<LeftJoinNode> LeftJoinHashTables(HashTable<string> leftTable, HashTable<string> rightTable)
         {
-            string[,] leftJoin = new string[tableOne.HashMap.Length, 3];
-            int rowIndex = 0;
-            for (int i = 0; i < tableOne.HashMap.Length; i++)
+            HashTable<LeftJoinNode> leftJoin = new HashTable<LeftJoinNode>();
+            for (int i = 0; i < leftTable.HashMap.Length; i++)
             {
-                if (tableOne.HashMap[i] != null)
+                if (leftTable.HashMap[i] != null)
                 {
-                    var currNode = tableOne.HashMap[i].First;
+                    var currNode = leftTable.HashMap[i].First;
                     while (currNode != null)
                     {
-                        leftJoin[rowIndex, 0] = currNode.Value.Key;
-                        leftJoin[rowIndex, 1] = currNode.Value.Value;
-                        if (tableTwo.Contains(currNode.Value.Key))
+                        LeftJoinNode newLeftJoinNode = new LeftJoinNode(currNode.Value.Value);
+                        if (rightTable.Contains(currNode.Value.Key))
                         {
-                            leftJoin[rowIndex, 2] = tableTwo.Get(currNode.Value.Key);
+                            newLeftJoinNode.RightValue = rightTable.Get(currNode.Value.Key);
                         }
-                        else
-                        {
-                            leftJoin[rowIndex, 2] = "";
-                        }
+                        leftJoin.Add(currNode.Value.Key, newLeftJoinNode);
                         currNode = currNode.Next;
-                        rowIndex++;
                     }
                 }
             }

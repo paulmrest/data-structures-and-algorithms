@@ -1,13 +1,28 @@
 using System;
 using Xunit;
-using HashTables.Classes;
 using HashTables;
-using LeftJoin;
+using LeftJoin.Classes;
 
 namespace LeftJoinTesting
 {
     public class LeftJoinTests
     {
+        [Fact]
+        public void ReturnsAnEmptyTableWhenGivenEmptyTables()
+        {
+            //Arrange
+            HashTable<string> testTableOne = new HashTable<string>();
+
+            HashTable<string> testTableTwo = new HashTable<string>();
+
+            //Act
+            HashTable<LeftJoinNode> resultTable = LeftJoin.LeftJoin.LeftJoinHashTables(testTableOne, testTableTwo);
+
+            //Assert
+            Assert.NotNull(resultTable);
+            Assert.Equal(0, resultTable.Count);
+        }
+
         [Fact]
         public void CanLeftJoinTwoHashTables()
         {
@@ -26,41 +41,97 @@ namespace LeftJoinTesting
             testTableTwo.Add("guide", "follow");
             testTableTwo.Add("flow", "jam");
 
-            string[,] expected = new string[,]
+            string[][] expectedArray = new string[][]
             {
-                {"fond", "enamored", "averse" },
-                {"wrath", "anger", "delight" },
-                {"diligent", "employed", "idle" },
-                {"outfit", "garb", "" },
-                {"guide", "usher", "follow" }
+                new string[]{"fond", "enamored", "averse" },
+                new string[]{"wrath", "anger", "delight" },
+                new string[]{"diligent", "employed", "idle" },
+                new string[]{"outfit", "garb", "" },
+                new string[]{"guide", "usher", "follow" }
             };
 
             //Act
-            string[,] result = LeftJoin.LeftJoin.LeftJoinHashTables(testTableOne, testTableTwo);
+            HashTable<LeftJoinNode> resultTable = LeftJoin.LeftJoin.LeftJoinHashTables(testTableOne, testTableTwo);
 
             //Assert
-            Assert.NotNull(result);
-            Assert.Equal(4, result.GetLength(0));
-            Assert.Equal(3, result.GetLength(1));
-            bool equalMatrices = true;
-            for (int i = 0; i < expected.GetLength(0); i++)
+            Assert.NotNull(resultTable);
+            bool expectedResultsMatch = true;
+            foreach (string[] stringArray in expectedArray)
             {
-                string key = expected[i, 0];
-                bool matchingRowFound = false;
-                for (int j = 0; j < result.GetLength(0); j++)
+                LeftJoinNode leftJoinNode = resultTable.Get(stringArray[0]);
+                if (leftJoinNode.LeftValue != stringArray[1] || leftJoinNode.RightValue != stringArray[2])
                 {
-                    if (expected[i, 0] == result[j, 0])
-                    {
-                        matchingRowFound = expected[i, 1] == result[j, 1] && expected[i, 2] == result[j, 2];
-                    }
-                }
-                if (!matchingRowFound)
-                {
-                    equalMatrices = false;
+                    expectedResultsMatch = false;
                     break;
                 }
             }
-            Assert.True(equalMatrices);
+            Assert.True(expectedResultsMatch);
+        }
+
+        [Fact]
+        public void CanLeftJoinTwoTablesWithNoMatchingKeysInRightTable()
+        {
+            //Arrange
+            HashTable<string> testTableOne = new HashTable<string>(20);
+            testTableOne.Add("fond", "enamored");
+            testTableOne.Add("wrath", "anger");
+            testTableOne.Add("diligent", "employed");
+            testTableOne.Add("outfit", "garb");
+            testTableOne.Add("guide", "usher");
+
+            HashTable<string> testTableTwo = new HashTable<string>(20);
+            testTableTwo.Add("frond", "averse");
+            testTableTwo.Add("wraith", "delight");
+            testTableTwo.Add("Dillinger", "idle");
+            testTableTwo.Add("guess", "follow");
+            testTableTwo.Add("float", "jam");
+
+            string[][] expectedArray = new string[][]
+            {
+                new string[]{"fond", "enamored", "" },
+                new string[]{"wrath", "anger", "" },
+                new string[]{"diligent", "employed", "" },
+                new string[]{"outfit", "garb", "" },
+                new string[]{"guide", "usher", "" }
+            };
+
+            //Act
+            HashTable<LeftJoinNode> resultTable = LeftJoin.LeftJoin.LeftJoinHashTables(testTableOne, testTableTwo);
+
+            //Assert
+            Assert.NotNull(resultTable);
+            bool expectedResultsMatch = true;
+            foreach (string[] stringArray in expectedArray)
+            {
+                LeftJoinNode leftJoinNode = resultTable.Get(stringArray[0]);
+                if (leftJoinNode.LeftValue != stringArray[1] || leftJoinNode.RightValue != stringArray[2])
+                {
+                    expectedResultsMatch = false;
+                    break;
+                }
+            }
+            Assert.True(expectedResultsMatch);
+        }
+
+        [Fact]
+        public void ReturnsAnEmptyHashTableWhenLeftTableIsEmpty()
+        {
+            //Arrange
+            HashTable<string> testTableOne = new HashTable<string>(20);
+
+            HashTable<string> testTableTwo = new HashTable<string>(20);
+            testTableTwo.Add("frond", "averse");
+            testTableTwo.Add("wraith", "delight");
+            testTableTwo.Add("Dillinger", "idle");
+            testTableTwo.Add("guess", "follow");
+            testTableTwo.Add("float", "jam");
+
+            //Act
+            HashTable<LeftJoinNode> resultTable = LeftJoin.LeftJoin.LeftJoinHashTables(testTableOne, testTableTwo);
+
+            //Assert
+            Assert.NotNull(resultTable);
+            Assert.Equal(0, resultTable.Count);
         }
     }
 }
