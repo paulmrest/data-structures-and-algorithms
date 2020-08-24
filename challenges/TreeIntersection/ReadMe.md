@@ -12,7 +12,7 @@ A class library with a single public method. This method takes two Tree<T> objec
 
 ### Whiteboard
 
-COMING SOON!
+![Tree Intersection - WB](../../assets/CC32-TreeIntersection-WB.png)
 
 ## Link(s) to Code
 

@@ -55,7 +55,7 @@ namespace TreeIntersection
         }
 
         /// <summary>
-        /// Prviate helper method. Recursively traverses the second tree and assembles a HashSet<T> of values in both trees.
+        /// Private helper method. Recursively traverses the second tree and assembles a HashSet<T> of values in both trees.
         /// </summary>
         /// <param name="currRoot">
         /// Node<T>: the root level Node for the current block in the recursion
