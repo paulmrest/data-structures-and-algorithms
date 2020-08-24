@@ -22,7 +22,7 @@ namespace HashTableTesting
         public void CanAddKeyValuePair()
         {
             //Arrange
-            HashTable<int> testHashTable = new HashTable<int>(20);
+            HashTable<int> testHashTable = new HashTable<int>();
             string testKey = "our king the key";
             int testValue = 71;
 
@@ -54,7 +54,7 @@ namespace HashTableTesting
         public void CanGetAValueFromAKey()
         {
             //Arrange
-            HashTable<int> testHashTable = new HashTable<int>(20);
+            HashTable<int> testHashTable = new HashTable<int>();
             string testKey = "our king the key";
             int testValue = 71;
 
@@ -71,7 +71,7 @@ namespace HashTableTesting
         public void ContainsDeterminesWhetherAKeyIsPresent()
         {
             //Arrange
-            HashTable<int> testHashTable = new HashTable<int>(20);
+            HashTable<int> testHashTable = new HashTable<int>();
             string testKey = "our king the key";
             int testValue = 71;
 
@@ -87,7 +87,7 @@ namespace HashTableTesting
         public void ReturnsNullForNotPresentValue()
         {
             //Arrange
-            HashTable<SimpleObject> testHashTable = new HashTable<SimpleObject>(20);
+            HashTable<SimpleObject> testHashTable = new HashTable<SimpleObject>();
             string testKey = "our king the key";
             string valueString = "value vroom";
             SimpleObject valueObject = new SimpleObject(valueString);
@@ -107,7 +107,7 @@ namespace HashTableTesting
         public void HandlesCollisions()
         {
             //Arrange
-            HashTable<int> testHashTable = new HashTable<int>(20);
+            HashTable<int> testHashTable = new HashTable<int>();
             //the strings "2222" and "dd" should be evaluate to a value of 200
             string testKey1 = "2222";
             int testValue1 = 45;
@@ -136,7 +136,7 @@ namespace HashTableTesting
         public void CanRetrieveValuesFromCollisions()
         {
             //Arrange
-            HashTable<int> testHashTable = new HashTable<int>(20);
+            HashTable<int> testHashTable = new HashTable<int>();
             //the strings "2222" and "dd" should be evaluate to a value of 200
             string testKey1 = "2222";
             int testValue1 = 45;
@@ -155,6 +155,32 @@ namespace HashTableTesting
             Assert.Equal(testValue2, gottenValue2);
         }
 
+        [Fact]
+        public void DoublesHashMapSizeCorrectly()
+        {
+            //Arrange
+            HashTable<int> testHashTable = new HashTable<int>(2);
+            //the strings "2222" and "dd" should be evaluate to a value of 200
+            string testKey1 = "a key for the ages";
+            int testValue1 = 45;
+            testHashTable.Add(testKey1, testValue1);
+
+            string testKey2 = "a key for all people";
+            int testValue2 = -12;
+            testHashTable.Add(testKey2, testValue2);
+
+            string testKey3 = "a good key";
+            int testValue3 = 19;
+            testHashTable.Add(testKey3, testValue3);
+
+            //Act
+            int hashMapSize = testHashTable.HashMap.Length;
+
+            //Assert
+            Assert.NotNull(testHashTable.HashMap);
+            Assert.Equal(4, hashMapSize);
+        }
+
         [Theory]
         [InlineData("some crazy string, but not too long...")]
         [InlineData("&$(*!&*F&uydgo#@198c81vh!7&()$$&G*")]
@@ -164,15 +190,14 @@ namespace HashTableTesting
         public void HashesAreWithinRange(string testValue)
         {
             //Arrange
-            int hashTableSize = 20;
-            HashTable<int> testHashTable = new HashTable<int>(hashTableSize);
+            HashTable<int> testHashTable = new HashTable<int>();
             //the strings "2222" and "dd" should be evaluate to a value of 200
 
             //Act
             int index = testHashTable.GetHash(testValue);
 
             //Assert
-            Assert.True(index < hashTableSize);
+            Assert.True(index < testHashTable.HashMap.Length);
         }
     }
 }

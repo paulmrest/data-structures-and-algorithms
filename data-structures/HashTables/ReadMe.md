@@ -43,4 +43,8 @@ A .NET Core class library that implements a HashTable class, and a KeyValueNode 
 
 ### 2020-08-16
 
-- Initial implementation and tests
+- Improved implementation. HashMap now auto-resizes and has a Count property that reflects the current number of elements in the HashTable.
+
+### 2020-08-16
+
+- Initial implementation and tests.
