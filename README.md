@@ -35,4 +35,4 @@
 - [Challenge - Repeated Word](challenges/RepeatedWord)
 - [Challenge - Tree Intersection](challenges/TreeIntersection)
 - [Challenge - Left Join](challenges/LeftJoin)
-- [Challenge - Graph](data-structure/Graph)
+- [Challenge - Graph](data-structures/Graph)
