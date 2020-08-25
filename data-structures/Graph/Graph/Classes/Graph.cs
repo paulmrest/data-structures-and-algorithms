@@ -99,5 +99,43 @@ namespace Graph.Classes
         {
             return _size;
         }
+
+        /// <summary>
+        /// Gets a breadth first traversal of the graph starting at the parameter vertex, returning a List of the vertices connected through the graph to that parameter vertex.
+        /// </summary>
+        /// <param name="vertex">
+        /// Vertex<T>: the vertex at which to start the traversal
+        /// </param>
+        /// <returns>
+        /// List<Vertex<T>>: a List of all the vertices connected to the parameter vertex
+        /// </returns>
+        public List<Vertex<T>> BreadthFirst(Vertex<T> vertex)
+        {
+            List<Vertex<T>> vertices = new List<Vertex<T>>();
+            BreathFirst(vertex, vertices);
+            return vertices;
+        }
+
+        /// <summary>
+        /// Conducts a recursive traversal of the graph, starting at the parameter Vertex, putting the vertices into the parameter List.
+        /// </summary>
+        /// <param name="currVertex">
+        /// Vertex<T>: the originating vertex for a given layer in the recursion
+        /// </param>
+        /// <param name="traversal">
+        /// List<Vertex<T>>: the traversal list, modified in place as the traversal proceeds
+        /// </param>
+        private void BreathFirst(Vertex<T> currVertex, List<Vertex<T>> traversal)
+        {
+            traversal.Add(currVertex);
+            List<Edge<T, W>> currEdges = AdjList[currVertex];
+            foreach (Edge<T,W> oneEdge in currEdges)
+            {
+                if (oneEdge.Vertex != null && !traversal.Contains(oneEdge.Vertex))
+                {
+                    BreathFirst(oneEdge.Vertex, traversal);
+                }
+            }
+        }
     }
 }
