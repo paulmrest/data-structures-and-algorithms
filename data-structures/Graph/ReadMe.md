@@ -7,6 +7,7 @@ An implementation of a directionally linked generic graph data structure. Employ
 - `GetNodes()`: gets a List<Vertex<T>> of all the vertices presently in teh graph.
 - `GetNeighbors(Vertex<T> vertex)`: gets a List<Edge<T, W>> of the edges originating from the parameter vertex.
 - `Size()`: returns an int signifying the curren number of vertices in the graph.
+- `BreadthFirst(Vertex<T> vertex)`: returns a breadth first traversal of the graph as a List<Vertex<T>>.
 
 ## Approach & Efficiency
 
@@ -25,14 +26,27 @@ An implementation of a directionally linked generic graph data structure. Employ
 - `Size()`:
     - Time: O(1)
     - Space: O(1)
+- `BreadthFirst(Vertex<T> vertex)`:
+    - Time: O(n): where n is the number of vertices
+    - Space: O(n): where n is the number of vertices
 
 ## Links to Code
 
 - [Graph.cs](Graph/Classes/Graph.cs)
 - [Vertex.cs](Graph/Classes/Vertex.cs)
 - [Edge.cs](Graph/Classes/Edge.cs)
+- [BreadthFirst()](Graph/Classes/Graph.cs#L103-L139)
+
+## Whiteboard
+
+### Breadth First Traversal
+
+![Breadth First Traversal](../../assets/CC36-BreadthFirstGraph-WB.png)
 
 ## Change Log
+
+### 2020-08-24
+- Added BreadthFirst()
 
 ### 2020-08-24
 - Initial implementation and tests
