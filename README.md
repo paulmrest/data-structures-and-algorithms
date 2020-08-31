@@ -37,3 +37,4 @@
 - [Challenge - Left Join](challenges/LeftJoin)
 - [Challenge - Graph](data-structures/Graph)
 - [Challenge - Breadth First Graph](data-structures/Graph)
+- [Challenge - Get Edges](data-structures/Graph)
