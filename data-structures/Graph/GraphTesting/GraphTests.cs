@@ -391,4 +391,104 @@ namespace GraphTesting
         }
     }
 
+    public class GetEdges
+    {
+        [Fact]
+        public void ReturnsTrueForAnEmptyArray()
+        {
+            //Arrange
+            Graph<string, int> testGraph = new Graph<string, int>();
+
+            Vertex<string> vertexOne = testGraph.AddNode("cheese plate");
+            Vertex<string> vertexTwo = testGraph.AddNode("martini pitcher");
+            Vertex<string> vertexThree = testGraph.AddNode("salmon puffs");
+
+            testGraph.AddEdge(vertexOne, vertexTwo, 50);
+            testGraph.AddEdge(vertexTwo, vertexThree, 25);
+
+
+            string[] locations = new string[] { };
+
+            //Act
+            var result = GetEdgesExtension.GetEdges(testGraph, locations);
+
+            //Assert
+            Assert.NotNull(result);
+            Assert.True(result.Item1);
+            Assert.Equal(0, result.Item2);
+        }
+
+        [Fact]
+        public void ReturnsFalseForEmptyGraph()
+        {
+            //Arrange
+            Graph<string, int> testGraph = new Graph<string, int>();
+
+            string[] locations = new string[] { };
+
+            //Act
+            var result = GetEdgesExtension.GetEdges(testGraph, locations);
+
+            //Assert
+            Assert.NotNull(result);
+            Assert.False(result.Item1);
+            Assert.Equal(-1, result.Item2);
+        }
+
+        [Fact]
+        public void CanFindSimpleRoute()
+        {
+            //Arrange
+            Graph<string, int> testGraph = new Graph<string, int>();
+
+            Vertex<string> vertexOne = testGraph.AddNode("cheese plate");
+            Vertex<string> vertexTwo = testGraph.AddNode("martini pitcher");
+            Vertex<string> vertexThree = testGraph.AddNode("salmon puffs");
+
+            testGraph.AddEdge(vertexOne, vertexTwo, 50);
+            testGraph.AddEdge(vertexTwo, vertexThree, 25);
+
+
+            string[] locations = new string[] { "cheese plate", "martini pitcher", "salmon puffs" };
+
+            //Act
+            var result = GetEdgesExtension.GetEdges(testGraph, locations);
+
+            //Assert
+            Assert.NotNull(result);
+            Assert.True(result.Item1);
+            Assert.Equal(75, result.Item2);
+        }
+
+        [Fact]
+        public void CanFindRouteInComplexGraphWithCircularRoutes()
+        {
+            //Arrange
+            Graph<string, int> testGraph = new Graph<string, int>();
+
+            Vertex<string> vertexOne = testGraph.AddNode("cheese plate");
+            Vertex<string> vertexTwo = testGraph.AddNode("martini pitcher");
+            Vertex<string> vertexThree = testGraph.AddNode("salmon puffs");
+            Vertex<string> vertexFour = testGraph.AddNode("whiskey cabinet");
+            Vertex<string> vertexFive = testGraph.AddNode("pancake table");
+
+            testGraph.AddEdge(vertexTwo, vertexFive, 50);
+            testGraph.AddEdge(vertexFive, vertexOne, 25);
+
+            testGraph.AddEdge(vertexOne, vertexFour, 12);
+            testGraph.AddEdge(vertexThree, vertexFive, 5);
+            testGraph.AddEdge(vertexFour, vertexThree, 19);
+            testGraph.AddEdge(vertexOne, vertexTwo, 7);
+
+            string[] locations = new string[] { "martini pitcher", "pancake table", "cheese plate" };
+
+            //Act
+            var result = GetEdgesExtension.GetEdges(testGraph, locations);
+
+            //Assert
+            Assert.NotNull(result);
+            Assert.True(result.Item1);
+            Assert.Equal(75, result.Item2);
+        }
+    }
 }

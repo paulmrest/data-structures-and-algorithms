@@ -8,6 +8,7 @@ An implementation of a directionally linked generic graph data structure. Employ
 - `GetNeighbors(Vertex<T> vertex)`: gets a List<Edge<T, W>> of the edges originating from the parameter vertex.
 - `Size()`: returns an int signifying the curren number of vertices in the graph.
 - `BreadthFirst(Vertex<T> vertex)`: returns a breadth first traversal of the graph as a List<Vertex<T>>.
+- `GetEdges(string[] cities)`: assumes the graph is modeling connected cities with the cost of traveling between them being the weight of the edges. Returns a tuple with a boolean, true if the graph can be traversed in the order from the parameter array, and an int that is the total cost of the trip across those various cities, or zero if the trip is not possible.
 
 ## Approach & Efficiency
 
@@ -29,6 +30,9 @@ An implementation of a directionally linked generic graph data structure. Employ
 - `BreadthFirst(Vertex<T> vertex)`:
     - Time: O(n): where n is the number of vertices
     - Space: O(n): where n is the number of vertices
+- `GetEdges(string[] cities)`:
+    - Time: O(V + E): where V is the number of vertices, and E is the number of edges
+    - Space: O(V): where V is the number of vertices
 
 ## Links to Code
 
@@ -36,12 +40,17 @@ An implementation of a directionally linked generic graph data structure. Employ
 - [Vertex.cs](Graph/Classes/Vertex.cs)
 - [Edge.cs](Graph/Classes/Edge.cs)
 - [BreadthFirst()](Graph/Classes/Graph.cs#L103-L139)
+- [GetEdges()](Graph/Classes/Graph.cs#L142-L227)
 
-## Whiteboard
+## Whiteboards
 
 ### Breadth First Traversal
 
 ![Breadth First Traversal](../../assets/CC36-BreadthFirstGraph-WB.png)
+
+### Get Edges
+
+![Get Edges](../../assets/CC37-GetEdges-WB.png)
 
 ## Change Log
 

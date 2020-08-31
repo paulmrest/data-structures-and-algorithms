@@ -138,4 +138,91 @@ namespace Graph.Classes
             }
         }
     }
+
+    /// <summary>
+    /// Extension class for Coding Challenge 37.
+    /// As we are only dealing with Graph<string, int>.
+    /// </summary>
+    public static class GetEdgesExtension
+    {
+        /// <summary>
+        /// Finds whether a given route is possible in the given graph, and returns a tuple with that route's cost.
+        /// </summary>
+        /// <param name="graph">
+        /// Graph<string, int>: the graph the route potentially exists within
+        /// </param>
+        /// <param name="route">
+        /// string[]: the route we are looking for within the graph
+        /// </param>
+        /// <returns>
+        /// Tuple<bool, int>: a tuple containing whether the route is possible (bool), and if it is, its cost (int). If the route is not possible, returns -1 for the cost
+        /// </returns>
+        public static Tuple<bool, int> GetEdges(this Graph<string, int> graph, string[] route)
+        {
+            if (route.Length == 0 && graph.Size() > 0)
+            {
+                return Tuple.Create(true, 0);
+            }
+            else
+            {
+                var vertices = graph.AdjList.Keys;
+                foreach (Vertex<string> oneVertex in vertices)
+                {
+                    var result = GetEdges(graph, new List<Vertex<string>>(), oneVertex, route, 0, 0);
+                    if (result.Item1)
+                    {
+                        return result;
+                    }
+                }
+                return Tuple.Create(false, -1);
+            }
+        }
+
+        /// <summary>
+        /// Recursive private method for traversing a graph starting from a given vertex, and looks for the parameter route.
+        /// </summary>
+        /// <param name="graph">
+        /// Graph<string, int>: the graph we are traversing
+        /// </param>
+        /// <param name="traversal">
+        /// List<Vertex<string>>: a List of the vertices seen so far in a given traversal. Allows checking for whether we are in an infinite loop in the graph.
+        /// </param>
+        /// <param name="currVertex">
+        /// Vertex<string>: the current vertex we are looking at in the traversal
+        /// </param>
+        /// <param name="route">
+        /// string[]: the route we are looking for as an array of destinations
+        /// </param>
+        /// <param name="index">
+        /// int: the index of the next destination we are looking for in the route string[]
+        /// </param>
+        /// <param name="cost">
+        /// int: once a possible route is found, keeps track of the total cost of the route
+        /// </param>
+        /// <returns>
+        /// Tuple<bool, int>: a tuple containing whether the route is possible (bool), and if it is, its cost (int). If the route is not possible, returns -1 for the cost.
+        /// </returns>
+        private static Tuple<bool, int> GetEdges(this Graph<string, int> graph, List<Vertex<string>> traversal, Vertex<string> currVertex, string[] route, int index, int cost)
+        {
+            if (!traversal.Contains(currVertex))
+            {
+                traversal.Add(currVertex);
+                if (currVertex.Value.ToLower() == route[index].ToLower())
+                {
+                    index++;
+                    if (index >= route.Length)
+                    {
+                        return Tuple.Create(true, cost);
+                    }
+                }
+                var vertexEdges = graph.GetNeighbors(currVertex);
+                foreach (var oneEdge in vertexEdges)
+                {
+                    cost += oneEdge.Weight;
+                    return GetEdges(graph, traversal, oneEdge.Vertex, route, index, cost);
+                }
+            }
+            return Tuple.Create(false, -1);
+        }
+    }
 }
