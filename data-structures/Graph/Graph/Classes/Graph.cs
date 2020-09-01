@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 
 namespace Graph.Classes
@@ -111,13 +113,13 @@ namespace Graph.Classes
         /// </returns>
         public List<Vertex<T>> BreadthFirst(Vertex<T> vertex)
         {
-            List<Vertex<T>> vertices = new List<Vertex<T>>();
-            BreathFirst(vertex, vertices);
-            return vertices;
+            List<Vertex<T>> traversal = new List<Vertex<T>>();
+            BreadthFirst(vertex, traversal);
+            return traversal;
         }
 
         /// <summary>
-        /// Conducts a recursive traversal of the graph, starting at the parameter Vertex, putting the vertices into the parameter List.
+        /// Conducts a recursive breadth first traversal of the graph, starting at the parameter Vertex, putting the vertices into the parameter List.
         /// </summary>
         /// <param name="currVertex">
         /// Vertex<T>: the originating vertex for a given layer in the recursion
@@ -125,17 +127,73 @@ namespace Graph.Classes
         /// <param name="traversal">
         /// List<Vertex<T>>: the traversal list, modified in place as the traversal proceeds
         /// </param>
-        private void BreathFirst(Vertex<T> currVertex, List<Vertex<T>> traversal)
+        private void BreadthFirst(Vertex<T> currVertex, List<Vertex<T>> traversal)
         {
-            traversal.Add(currVertex);
+
             List<Edge<T, W>> currEdges = AdjList[currVertex];
-            foreach (Edge<T,W> oneEdge in currEdges)
+            Queue<Vertex<T>> queue = new Queue<Vertex<T>>();
+            if (traversal.Count == 0)
+            {
+                traversal.Add(currVertex);
+            }
+            foreach (Edge<T, W> oneEdge in currEdges)
             {
                 if (oneEdge.Vertex != null && !traversal.Contains(oneEdge.Vertex))
                 {
-                    BreathFirst(oneEdge.Vertex, traversal);
+                    queue.Enqueue(oneEdge.Vertex);
                 }
             }
+            int queueSize = queue.Count;
+            for (int i = 0; i < queueSize; i++)
+            {
+                Vertex<T> temp = queue.Dequeue();
+                traversal.Add(temp);
+                queue.Enqueue(temp);
+            }
+            while (queue.Any())
+            {
+                BreadthFirst(queue.Dequeue(), traversal);
+            }
+        }
+
+        /// <summary>
+        /// Gets a depth-first traversal of the instance's graph's vertices.
+        /// </summary>
+        /// <returns>
+        /// List<Vertex<T>>: a list of the graph's vertices, depth first
+        /// </returns>
+        public List<Vertex<T>> DepthFirst()
+        {
+            Dictionary<Vertex<T>, List<Edge<T, W>>>.KeyCollection keys = AdjList.Keys;
+            Vertex<T> root = keys.First();
+            List<Vertex<T>> traversal = new List<Vertex<T>>();
+            DepthFirst(root, traversal);
+            return traversal;
+        }   
+
+        /// <summary>
+        /// Private recursive method that performs a depth-first traversal of the instance graph.
+        /// </summary>
+        /// <param name="currVertex">
+        /// Vertex<T>: the current frame's vertex
+        /// </param>
+        /// <param name="traversal">
+        /// List<Vertex<T>>: the collection of vertices thus far
+        /// </param>
+        /// <returns>
+        /// List<Vertex<T>>: the traversal list of vertices
+        /// </returns>
+        private List<Vertex<T>> DepthFirst(Vertex<T> currVertex, List<Vertex<T>> traversal)
+        {
+            if (!traversal.Contains(currVertex))
+            {
+                traversal.Add(currVertex);
+                foreach (Edge<T, W> oneEdge in AdjList[currVertex])
+                {
+                    DepthFirst(oneEdge.Vertex, traversal);   
+                }
+            }
+            return traversal;
         }
     }
 
