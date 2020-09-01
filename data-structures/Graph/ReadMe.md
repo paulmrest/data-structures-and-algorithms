@@ -43,7 +43,7 @@ An implementation of a directionally linked generic graph data structure. Employ
 - [Graph.cs](Graph/Classes/Graph.cs)
 - [Vertex.cs](Graph/Classes/Vertex.cs)
 - [Edge.cs](Graph/Classes/Edge.cs)
-- [BreadthFirst()](Graph/Classes/Graph.cs#L103-L139)
+- [BreadthFirst()](Graph/Classes/Graph.cs#L105-L157)
 - [GetEdges()](Graph/Classes/Graph.cs#L200-L285)
 - [DepthFirst()](Graph/Classes/Graph.cs#L159-L197)
 
