@@ -180,7 +180,7 @@ namespace GraphTesting
         }
     }
 
-    public class BreathFirstTests
+    public class BreadthFirstTests
     {
         [Fact]
         public void CanTraverseAGraphWithOneNode()
@@ -261,10 +261,12 @@ namespace GraphTesting
             Vertex<string> vertexThree = testGraph.AddNode("vertexThree");
             Vertex<string> vertexFour = testGraph.AddNode("vertexFour");
             Vertex<string> vertexFive = testGraph.AddNode("vertexFive");
+            Vertex<string> vertexSix = testGraph.AddNode("vertexSix");
 
             testGraph.AddEdge(vertexOne, vertexTwo, 50);
             testGraph.AddEdge(vertexTwo, vertexThree, 25);
             testGraph.AddEdge(vertexTwo, vertexFour, 25);
+            testGraph.AddEdge(vertexTwo, vertexSix, 25);
             testGraph.AddEdge(vertexThree, vertexFive, 25);
 
             string[] expectedOrder = new string[]
@@ -272,8 +274,9 @@ namespace GraphTesting
                 "vertexOne",
                 "vertexTwo",
                 "vertexThree",
-                "vertexFive",
-                "vertexFour"
+                "vertexFour",
+                "vertexSix",
+                "vertexFive"
             };
 
             //Act
@@ -281,7 +284,7 @@ namespace GraphTesting
 
             //Assert
             Assert.NotNull(traversal);
-            Assert.Equal(5, traversal.Count);
+            Assert.Equal(6, traversal.Count);
             bool traversalOrderCorrect = true;
             int index = 0;
             foreach (Vertex<string> oneVertex in traversal)
@@ -320,8 +323,8 @@ namespace GraphTesting
                 "vertexOne",
                 "vertexTwo",
                 "vertexThree",
-                "vertexFive",
-                "vertexFour"
+                "vertexFour",
+                "vertexFive"
             };
 
             //Act
@@ -489,6 +492,220 @@ namespace GraphTesting
             Assert.NotNull(result);
             Assert.True(result.Item1);
             Assert.Equal(75, result.Item2);
+        }
+    }
+
+    public class DepthFirstTests
+    {
+        [Fact]
+        public void CanTraverseAGraphWithOneNode()
+        {
+            //Arrange
+            Graph<string, int> testGraph = new Graph<string, int>();
+
+            Vertex<string> vertexOne = testGraph.AddNode("vertexOne");
+
+            string[] expectedOrder = new string[]
+            {
+                "vertexOne"
+            };
+
+            //Act
+            List<Vertex<string>> traversal = testGraph.DepthFirst();
+
+            //Assert
+            Assert.NotNull(traversal);
+            Assert.Single(traversal);
+            bool traversalOrderCorrect = true;
+            int index = 0;
+            foreach (Vertex<string> oneVertex in traversal)
+            {
+                if (oneVertex.Value != expectedOrder[index])
+                {
+                    traversalOrderCorrect = false;
+                    break;
+                }
+                index++;
+            }
+            Assert.True(traversalOrderCorrect);
+        }
+
+        [Fact]
+        public void CanTraverseAGraphWithOneNodeWhoseEdgePointsAtItself()
+        {
+            //Arrange
+            Graph<string, int> testGraph = new Graph<string, int>();
+
+            Vertex<string> vertexOne = testGraph.AddNode("vertexOne");
+
+            testGraph.AddEdge(vertexOne, vertexOne, 50);
+
+            string[] expectedOrder = new string[]
+            {
+                "vertexOne"
+            };
+
+            //Act
+            List<Vertex<string>> traversal = testGraph.DepthFirst();
+
+            //Assert
+            Assert.NotNull(traversal);
+            Assert.Single(traversal);
+            bool traversalOrderCorrect = true;
+            int index = 0;
+            foreach (Vertex<string> oneVertex in traversal)
+            {
+                if (oneVertex.Value != expectedOrder[index])
+                {
+                    traversalOrderCorrect = false;
+                    break;
+                }
+                index++;
+            }
+            Assert.True(traversalOrderCorrect);
+        }
+
+        [Fact]
+        public void CanTraverseAGraph()
+        {
+            //Arrange
+            Graph<string, int> testGraph = new Graph<string, int>();
+
+            Vertex<string> vertexOne = testGraph.AddNode("vertexOne");
+            Vertex<string> vertexTwo = testGraph.AddNode("vertexTwo");
+            Vertex<string> vertexThree = testGraph.AddNode("vertexThree");
+            Vertex<string> vertexFour = testGraph.AddNode("vertexFour");
+            Vertex<string> vertexFive = testGraph.AddNode("vertexFive");
+            Vertex<string> vertexSix = testGraph.AddNode("vertexSix");
+
+            testGraph.AddEdge(vertexOne, vertexTwo, 50);
+            testGraph.AddEdge(vertexTwo, vertexThree, 25);
+            testGraph.AddEdge(vertexTwo, vertexFour, 25);
+            testGraph.AddEdge(vertexTwo, vertexSix, 25);
+            testGraph.AddEdge(vertexThree, vertexFive, 25);
+
+            string[] expectedOrder = new string[]
+            {
+                "vertexOne",
+                "vertexTwo",
+                "vertexThree",
+                "vertexFive",
+                "vertexFour",
+                "vertexSix"
+            };
+
+            //Act
+            List<Vertex<string>> traversal = testGraph.DepthFirst();
+
+            //Assert
+            Assert.NotNull(traversal);
+            Assert.Equal(6, traversal.Count);
+            bool traversalOrderCorrect = true;
+            int index = 0;
+            foreach (Vertex<string> oneVertex in traversal)
+            {
+                if (oneVertex.Value != expectedOrder[index])
+                {
+                    traversalOrderCorrect = false;
+                    break;
+                }
+                index++;
+            }
+            Assert.True(traversalOrderCorrect);
+        }
+
+        [Fact]
+        public void CanTraverseAGraphWithCircularEdges()
+        {
+            //Arrange
+            Graph<string, int> testGraph = new Graph<string, int>();
+
+            Vertex<string> vertexOne = testGraph.AddNode("vertexOne");
+            Vertex<string> vertexTwo = testGraph.AddNode("vertexTwo");
+            Vertex<string> vertexThree = testGraph.AddNode("vertexThree");
+            Vertex<string> vertexFour = testGraph.AddNode("vertexFour");
+            Vertex<string> vertexFive = testGraph.AddNode("vertexFive");
+
+            testGraph.AddEdge(vertexOne, vertexTwo, 25);
+            testGraph.AddEdge(vertexTwo, vertexThree, 25);
+            testGraph.AddEdge(vertexTwo, vertexFour, 25);
+            testGraph.AddEdge(vertexThree, vertexFive, 25);
+            testGraph.AddEdge(vertexFive, vertexTwo, 25);
+            testGraph.AddEdge(vertexFour, vertexThree, 25);
+
+            string[] expectedOrder = new string[]
+            {
+                "vertexOne",
+                "vertexTwo",
+                "vertexThree",
+                "vertexFive",
+                "vertexFour"
+            };
+
+            //Act
+            List<Vertex<string>> traversal = testGraph.DepthFirst();
+
+            //Assert
+            Assert.NotNull(traversal);
+            Assert.Equal(5, traversal.Count);
+            bool traversalOrderCorrect = true;
+            int index = 0;
+            foreach (Vertex<string> oneVertex in traversal)
+            {
+                if (oneVertex.Value != expectedOrder[index])
+                {
+                    traversalOrderCorrect = false;
+                    break;
+                }
+                index++;
+            }
+            Assert.True(traversalOrderCorrect);
+        }
+
+        [Fact]
+        public void DoesNotTraverseIslandVertices()
+        {
+            //Arrange
+            Graph<string, int> testGraph = new Graph<string, int>();
+
+            Vertex<string> vertexOne = testGraph.AddNode("vertexOne");
+            Vertex<string> vertexTwo = testGraph.AddNode("vertexTwo");
+            Vertex<string> vertexThree = testGraph.AddNode("vertexThree");
+            Vertex<string> vertexFour = testGraph.AddNode("vertexFour");
+            Vertex<string> vertexFive = testGraph.AddNode("vertexFive");
+
+            testGraph.AddEdge(vertexOne, vertexTwo, 25);
+            testGraph.AddEdge(vertexTwo, vertexThree, 25);
+            testGraph.AddEdge(vertexTwo, vertexOne, 25);
+
+            testGraph.AddEdge(vertexFive, vertexFour, 25);
+            testGraph.AddEdge(vertexFour, vertexFive, 25);
+
+            string[] expectedOrder = new string[]
+            {
+                "vertexOne",
+                "vertexTwo",
+                "vertexThree"
+            };
+
+            //Act
+            List<Vertex<string>> traversal = testGraph.DepthFirst();
+
+            //Assert
+            Assert.NotNull(traversal);
+            Assert.Equal(3, traversal.Count);
+            bool traversalOrderCorrect = true;
+            int index = 0;
+            foreach (Vertex<string> oneVertex in traversal)
+            {
+                if (oneVertex.Value != expectedOrder[index])
+                {
+                    traversalOrderCorrect = false;
+                    break;
+                }
+                index++;
+            }
+            Assert.True(traversalOrderCorrect);
         }
     }
 }

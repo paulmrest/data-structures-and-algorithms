@@ -38,3 +38,4 @@
 - [Challenge - Graph](data-structures/Graph)
 - [Challenge - Breadth First Graph](data-structures/Graph)
 - [Challenge - Get Edges](data-structures/Graph)
+- [Challenge - Depth First](data-structures/Graph)
